@@ -5,6 +5,7 @@ import styles from './styles';
 
 class Main extends React.Component {
     render(){
+        const navigation = this.props.navigation;
         return(
             <View>
                 <ImageBackground
@@ -18,7 +19,7 @@ class Main extends React.Component {
                     source={require('./milia_logo.png')}
                     style={styles.logo}
                 />
-                <TouchableOpacity style={styles.start_button}>
+                <TouchableOpacity onPress={() => {navigation.navigate('Income')}} style={styles.start_button}>
                     <Text style={styles.button_text}>Começar</Text>
                 </TouchableOpacity>
             </View>
