@@ -1,0 +1,30 @@
+import React from 'react';
+import { View, Text, TouchableOpacity, ImageBackground, Image } from 'react-native';
+
+import styles from './styles';
+
+class Main extends React.Component {
+    render(){
+        return(
+            <View>
+                <ImageBackground
+                    
+                    source={require('./main_background.png')}
+                    style={styles.background}
+                    resizeMode = 'cover'
+                    
+                />
+                <Image
+                    source={require('./milia_logo.png')}
+                    style={styles.logo}
+                />
+                <TouchableOpacity style={styles.start_button}>
+                    <Text style={styles.button_text}>Começar</Text>
+                </TouchableOpacity>
+            </View>
+        );
+        
+    }
+}
+
+export default Main;
