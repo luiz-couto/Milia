@@ -4,6 +4,10 @@ import { openDatabase } from 'react-native-sqlite-storage';
 
 import styles from './styles';
 
+import IncomeItem from './incomeItem/index';
+import IncomeModal from './IncomeModal';
+import { ScrollView } from 'react-native-gesture-handler';
+
 
 let db = openDatabase('inc_list','1.0','Income List', -1)
 
@@ -15,6 +19,7 @@ class Income extends React.Component {
             name: '',
             value: '',
             incomeArray: [],
+            showModal: false,
         }
     }
 
@@ -68,13 +73,45 @@ class Income extends React.Component {
     
         });
     }
-    
-    
+
+    openModal = () => {
+        this.setState({ showModal: true });
+    }
+
+    closeModal = () => {
+        console.log("PASSOU AQUI");
+        this.setState({ showModal: false });
+    }
     
     
     render(){
+
+        const navigation = this.props;
+        const {
+            incomeArray,
+            showModal,
+        } = this.state
+        let incomes = incomeArray.map((val, key) =>{
+            return <IncomeItem key={key} val={val}
+                    navigation = {navigation} />
+        })
         return (
-            <Text>Income Page</Text>
+            <>
+                <View>
+                    <TouchableOpacity onPress={this.openModal}>
+                        <Text>Adicionar</Text>
+                    </TouchableOpacity>
+                    <ScrollView>
+                        {incomes}
+                    </ScrollView>
+                </View>
+                {showModal && (
+                    <IncomeModal
+                    navigation={navigation}
+                    closeModal={this.closeModal}
+                    />
+                )}
+            </>
         );
     }
 }
