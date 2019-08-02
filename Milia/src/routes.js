@@ -2,15 +2,24 @@ import React from 'react';
 import { Component, Text } from 'react-native';
 import { Root } from "native-base";
 import { createStackNavigator, createAppContainer,createDrawerNavigator,
-DrawerItems} from 'react-navigation';
+DrawerItems, createBottomTabNavigator} from 'react-navigation';
 
 import Main from './pages/Main/index';
 import Income from './pages/Income/index';
+import SpendPlan from './pages/SpendPlan/index';
+
+const TabNavig = createBottomTabNavigator(
+    {
+        Income: { screen: Income },
+        SpendPlan: { screen: SpendPlan }
+
+    }
+)
 
 const AppNavigator = createStackNavigator(
     {
         Main: { screen: Main },
-        Income: { screen: Income },
+        Tab: { screen: TabNavig },
     },
     {
         headerMode: 'none',
