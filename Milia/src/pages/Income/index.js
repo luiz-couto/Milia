@@ -18,6 +18,7 @@ class Income extends React.Component {
         this.state = {
             name: '',
             value: '',
+            incomeTotal: 0,
             incomeArray: [],
             showModal: false,
         }
@@ -53,10 +54,14 @@ class Income extends React.Component {
                 this.setState({incomeArray: this.state.incomeArray})
             }
             
+            let total = 0;
+
             for(i=0;i<len;i++){
 
-                name = rows.item(i).income_name
-                value = rows.item(i).income_value
+                name = rows.item(i).income_name;
+                value = rows.item(i).income_value;
+                total = total + Number(value);
+                console.log(total)
 
                 this.state.incomeArray.push({
 
@@ -65,7 +70,7 @@ class Income extends React.Component {
                 });
 
 
-                this.setState({incomeArray: this.state.incomeArray})
+                this.setState({incomeArray: this.state.incomeArray, incomeTotal: total})
                 
                 
             }
@@ -108,6 +113,7 @@ class Income extends React.Component {
         const {
             incomeArray,
             showModal,
+            incomeTotal
         } = this.state
         let incomes = incomeArray.map((val, key) =>{
             return <IncomeItem key={key} val={val}
@@ -122,6 +128,8 @@ class Income extends React.Component {
                     <ScrollView>
                         {incomes}
                     </ScrollView>
+                    <Text>{'--------------------------------------------------'}</Text>
+                    <Text>{'Total - ' + 'R$ ' + String(incomeTotal) }</Text>
                 </View>
                 {showModal && (
                     <IncomeModal
