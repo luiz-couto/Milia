@@ -25,8 +25,9 @@ class Income extends React.Component {
 
     componentDidMount(){
         db.transaction(function(tx){
-            tx.executeSql('CREATE TABLE IF NOT EXISTS income_table(income_id INTEGER PRIMARY KEY AUTOINCREMENT,income_name TEXT, income_value NUMBER)')
+            tx.executeSql('CREATE TABLE IF NOT EXISTS income_table(income_id INTEGER PRIMARY KEY AUTOINCREMENT,income_name TEXT, income_value TEXT)')
         })
+        //this.cleanAllData()
         this.showData()    
     }
 
@@ -59,7 +60,7 @@ class Income extends React.Component {
 
                 this.state.incomeArray.push({
 
-                    'name': name + ';.;' + value
+                    'name': name + ';.;' + String(value)
                     
                 });
 
@@ -74,13 +75,30 @@ class Income extends React.Component {
         });
     }
 
+    cleanAllData(){
+
+        db.transaction(function(tx){
+            tx.executeSql('DELETE FROM income_table', [], (tx, resultado) =>{
+                
+                console.log('Item deleted')
+
+            })
+        })
+
+        this.showData()
+
+    }
+
     openModal = () => {
         this.setState({ showModal: true });
     }
 
     closeModal = () => {
         console.log("PASSOU AQUI");
-        this.setState({ showModal: false });
+        this.setState({ showModal: false },  () => {
+            this.showData();
+        }
+        );
     }
     
     

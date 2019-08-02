@@ -21,10 +21,11 @@ class IncomeItem extends React.Component {
         const navigation = this.props.navigation
         return(
             <View>
-                <Text>{this.returnName()}</Text>
-                <Text>{this.returnValue()}</Text>
+                <Text>{this.returnName() + ' - ' + 'R$ ' + this.returnValue()}</Text>
             </View>
         );
     }
 
 }
+
+export default IncomeItem;

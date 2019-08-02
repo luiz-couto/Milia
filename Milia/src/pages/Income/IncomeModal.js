@@ -3,6 +3,7 @@ import { Modal, View, Text, TouchableOpacity, ImageBackground, Image, TextInput 
 import { openDatabase } from 'react-native-sqlite-storage';
 import styles from './styles';
 
+let db = openDatabase('inc_list','1.0','Income List', -1)
 
 class IncomeModal extends React.Component{
     
@@ -11,7 +12,7 @@ class IncomeModal extends React.Component{
         this.state = {
             isVisible: true,
             incomeName: '',
-            incomeValue: null,
+            incomeValue: '',
         }
     }
 
@@ -22,6 +23,22 @@ class IncomeModal extends React.Component{
         });
     }
     
+    saveData() {
+        let {
+            incomeName,
+            incomeValue
+        } = this.state
+        
+        console.log(incomeName);
+        console.log(incomeValue);
+
+        db.transaction(function(tx){
+            tx.executeSql('INSERT INTO income_table (income_name,income_value) VALUES(?,?)',[incomeName,incomeValue])
+        })
+
+        this.closeModal();
+    }
+
     render(){
         
         const navigation = this.props
@@ -54,7 +71,7 @@ class IncomeModal extends React.Component{
                 value={incomeValue}
                 ></TextInput>
 
-                <TouchableOpacity onPress={() => {}}>
+                <TouchableOpacity onPress={() => {this.saveData()}}>
                     <Text>Adicionar</Text>
                 </TouchableOpacity>
                     
