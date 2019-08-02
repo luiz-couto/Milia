@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, View, Text, TouchableOpacity, ImageBackground, Image } from 'react-native';
+import { Modal, View, Text, TouchableOpacity, ImageBackground, Image, TextInput } from 'react-native';
 import { openDatabase } from 'react-native-sqlite-storage';
 import styles from './styles';
 
@@ -10,6 +10,8 @@ class IncomeModal extends React.Component{
         super(props);
         this.state = {
             isVisible: true,
+            incomeName: '',
+            incomeValue: null,
         }
     }
 
@@ -23,7 +25,11 @@ class IncomeModal extends React.Component{
     render(){
         
         const navigation = this.props
-        let { isVisible } = this.state
+        let { 
+            isVisible,
+            incomeName,
+            incomeValue,
+        } = this.state
 
         return(
                 <Modal style={styles.modal_container} 
@@ -34,7 +40,24 @@ class IncomeModal extends React.Component{
                 <TouchableOpacity onPress={() => {this.closeModal()}}>
                     <Text>Cancelar</Text>
                 </TouchableOpacity>
-                    <Text>Heello Miiliia</Text>
+
+                <TextInput
+                style={{ height: 70, borderColor: 'gray', borderWidth: 2}}
+                onChangeText={(incomeName) => { this.setState ({ incomeName })}}
+                value={incomeName}
+                >
+                </TextInput>
+                
+                <TextInput
+                style={{ height: 70, borderColor: 'gray', borderWidth: 2}}
+                onChangeText={(incomeValue) => { this.setState ({ incomeValue })}}
+                value={incomeValue}
+                ></TextInput>
+
+                <TouchableOpacity onPress={() => {}}>
+                    <Text>Adicionar</Text>
+                </TouchableOpacity>
+                    
                 </Modal>
         );
     }
