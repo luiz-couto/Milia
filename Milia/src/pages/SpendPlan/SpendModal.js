@@ -32,8 +32,10 @@ class SpendModal extends React.Component{
         console.log(spendName);
         console.log(spendValue);
 
+        let spend_already = '0'
+
         db.transaction(function(tx){
-            tx.executeSql('INSERT INTO spend_table (spend_name,spend_value) VALUES(?,?)',[spendName,spendValue])
+            tx.executeSql('INSERT INTO spend_table (spend_name,spend_value,spend_already) VALUES(?,?,?)',[spendName,spendValue,spend_already]);
         })
 
         this.closeModal();

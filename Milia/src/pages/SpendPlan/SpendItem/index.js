@@ -17,11 +17,17 @@ class SpendItem extends React.Component {
         return spl[1];
     }
 
+    returnSpendAlready() {
+        value = this.props.val.name;
+        spl = value.split(';.;',3)
+        return spl[2];
+    }
+
     render(){
         const navigation = this.props.navigation
         return(
             <View>
-                <Text>{this.returnName() + ' - ' + 'R$ ' + this.returnValue()}</Text>
+                <Text>{this.returnName() + ' - ' + 'R$ ' + this.returnValue() + ' - ' + this.returnSpendAlready()}</Text>
             </View>
         );
     }

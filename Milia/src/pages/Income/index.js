@@ -61,7 +61,7 @@ class Income extends React.Component {
                 name = rows.item(i).income_name;
                 value = rows.item(i).income_value;
                 total = total + Number(value);
-                console.log(total)
+                //console.log(total)
 
                 this.state.incomeArray.push({
 
@@ -75,7 +75,7 @@ class Income extends React.Component {
                 
             }
 
-            console.log(this.state.incomeArray)
+            //console.log(this.state.incomeArray)
     
         });
     }
@@ -85,7 +85,7 @@ class Income extends React.Component {
         db.transaction(function(tx){
             tx.executeSql('DELETE FROM income_table', [], (tx, resultado) =>{
                 
-                console.log('Item deleted')
+                //console.log('Item deleted')
 
             })
         })
@@ -99,7 +99,7 @@ class Income extends React.Component {
     }
 
     closeModal = () => {
-        console.log("PASSOU AQUI");
+        //console.log("PASSOU AQUI");
         this.setState({ showModal: false },  () => {
             this.showData();
         }

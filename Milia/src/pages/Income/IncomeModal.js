@@ -17,7 +17,7 @@ class IncomeModal extends React.Component{
     }
 
     closeModal() {
-        console.log('passou aqui');
+        //console.log('passou aqui');
         this.setState({ isVisible: false }, () => {
             setTimeout(this.props.closeModal, 500);
         });
@@ -29,8 +29,8 @@ class IncomeModal extends React.Component{
             incomeValue
         } = this.state
         
-        console.log(incomeName);
-        console.log(incomeValue);
+        //console.log(incomeName);
+        //console.log(incomeValue);
 
         db.transaction(function(tx){
             tx.executeSql('INSERT INTO income_table (income_name,income_value) VALUES(?,?)',[incomeName,incomeValue])

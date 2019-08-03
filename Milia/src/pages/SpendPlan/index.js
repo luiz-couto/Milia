@@ -15,6 +15,7 @@ class SpendPlan extends React.Component {
         this.state = {
             name: '',
             value: '',
+            spendAlready:'',
             incomeTotal: 0,
             spendArray: [],
             showModal: false,
@@ -23,9 +24,8 @@ class SpendPlan extends React.Component {
 
     componentDidMount(){
         db.transaction(function(tx){
-            tx.executeSql('CREATE TABLE IF NOT EXISTS spend_table(spend_id INTEGER PRIMARY KEY AUTOINCREMENT,spend_name TEXT, spend_value TEXT)')
+            tx.executeSql('CREATE TABLE IF NOT EXISTS spend_table(spend_id INTEGER PRIMARY KEY AUTOINCREMENT,spend_name TEXT, spend_value TEXT, spend_already TEXT)')
         })
-        //this.cleanAllData()
         this.showData()    
     }
 
@@ -57,12 +57,14 @@ class SpendPlan extends React.Component {
 
                 name = rows.item(i).spend_name;
                 value = rows.item(i).spend_value;
+                spendAlready = rows.item(i).spend_already;
+
                 total = total + Number(value);
                 console.log(total)
 
                 this.state.spendArray.push({
 
-                    'name': name + ';.;' + String(value)
+                    'name': name + ';.;' + String(value) + ';.;' + String(spendAlready)
                     
                 });
 
