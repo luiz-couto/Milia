@@ -71,6 +71,8 @@ class ISpend extends React.Component {
             db.transaction(function(tx){
                 tx.executeSql('UPDATE spend_table SET spend_already =(?) WHERE spend_name =(?)',[String(sum), selectedSpend])
             })
+
+            this.props.navigation.navigate('SpendPlan',{ atualizar: 1 })
     
         });
 

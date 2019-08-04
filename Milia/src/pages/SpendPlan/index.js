@@ -108,8 +108,15 @@ class SpendPlan extends React.Component {
     
     
     render(){
+        
+        const {navigation} = this.props;
 
-        const navigation = this.props;
+        if(navigation.getParam('atualizar',0) == 1){
+            
+            navigation.state.params.atualizar = 0;
+            this.showData();
+        }
+
         const {
             spendArray,
             showModal,
