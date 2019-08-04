@@ -26,6 +26,7 @@ class SpendPlan extends React.Component {
         db.transaction(function(tx){
             tx.executeSql('CREATE TABLE IF NOT EXISTS spend_table(spend_id INTEGER PRIMARY KEY AUTOINCREMENT,spend_name TEXT, spend_value TEXT, spend_already TEXT)')
         })
+        //this.cleanAllData()
         this.showData()    
     }
 

@@ -7,13 +7,13 @@ class SpendItem extends React.Component {
 
     returnName(){
         name = this.props.val.name;
-        spl = name.split(';.;',2);
+        spl = name.split(';.;',3);
         return spl[0];
     }
 
     returnValue(){
         value = this.props.val.name;
-        spl = value.split(';.;',2)
+        spl = value.split(';.;',3)
         return spl[1];
     }
 
