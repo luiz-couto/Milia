@@ -7,11 +7,13 @@ DrawerItems, createBottomTabNavigator} from 'react-navigation';
 import Main from './pages/Main/index';
 import Income from './pages/Income/index';
 import SpendPlan from './pages/SpendPlan/index';
+import ISpend from './pages/ISpend/index';
 
 const TabNavig = createBottomTabNavigator(
     {
         Income: { screen: Income },
-        SpendPlan: { screen: SpendPlan }
+        SpendPlan: { screen: SpendPlan },
+        ISPend: { screen: ISpend }
 
     }
 )
