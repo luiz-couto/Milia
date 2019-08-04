@@ -49,7 +49,20 @@ class ISpend extends React.Component {
         });
     }
 
-    
+    updateData(){
+
+        let {
+            spendNow,
+            selectedSpend
+        } = this.state
+
+        db.transaction(function(tx){
+            tx.executeSql('UPDATE spend_table SET spend_already =(?) WHERE spend_name =(?)',[spendNow, selectedSpend])
+        })
+
+    }
+
+
     
     render() {
         const {
@@ -81,7 +94,7 @@ class ISpend extends React.Component {
                 value={spendNow}
                 >
                 </TextInput>
-                <TouchableOpacity onPress={() => {}}>
+                <TouchableOpacity onPress={() => {this.updateData()}}>
                     <Text>Spend!</Text>
                 </TouchableOpacity>
             </View>
