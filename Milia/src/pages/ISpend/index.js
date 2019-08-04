@@ -56,9 +56,24 @@ class ISpend extends React.Component {
             selectedSpend
         } = this.state
 
-        db.transaction(function(tx){
-            tx.executeSql('UPDATE spend_table SET spend_already =(?) WHERE spend_name =(?)',[spendNow, selectedSpend])
-        })
+
+        let result = new Promise((resolve,reject) => {
+            
+            db.transaction(function(tx){
+            tx.executeSql('SELECT spend_already FROM spend_table WHERE spend_name=(?)',[selectedSpend],(tx,resultado) => {
+                resolve(resultado)
+            })
+        },null)})
+
+        result.then((resultado) => {
+            let base = resultado.rows.item(0).spend_already
+            sum = Number(base) + Number(spendNow)
+            db.transaction(function(tx){
+                tx.executeSql('UPDATE spend_table SET spend_already =(?) WHERE spend_name =(?)',[String(sum), selectedSpend])
+            })
+    
+        });
+
 
     }
 
