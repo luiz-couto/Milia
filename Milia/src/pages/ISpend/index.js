@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, Image, Picker } from 'react-native';
+import { View, Text, TouchableOpacity, ImageBackground, Image, Picker, TextInput } from 'react-native';
 import { openDatabase } from 'react-native-sqlite-storage';
 
 import { ScrollView } from 'react-native-gesture-handler';
@@ -12,7 +12,8 @@ class ISpend extends React.Component {
         super(props);
         this.state = {
             selectedSpend: '',
-            spendList: []
+            spendList: [],
+            spendNow: null,
         }
     }
 
@@ -47,28 +48,44 @@ class ISpend extends React.Component {
             this.setState({ spendList: spendNames })
         });
     }
+
+    
     
     render() {
         const {
             selectedSpend,
-            spendList
+            spendList,
+            spendNow
         } = this.state
 
         return (
-            <Picker
-            mode='dropdown'
-            selectedValue={selectedSpend}
-            style={{height: 30, width: 300}}
-            onValueChange={(itemValue, itemIndex) => {
-                this.setState({ selectedSpend: itemValue });
-            }}
-            >
-            {spendList.map(( spend ) => {
-                return(
-                <Picker.Item key={`spend-${spend}`} label={spend} value={spend}/>
-                );
-            })}
-            </Picker>
+            <View>
+                <Picker
+                mode='dropdown'
+                selectedValue={selectedSpend}
+                style={{height: 30, width: 300}}
+                onValueChange={(itemValue, itemIndex) => {
+                    this.setState({ selectedSpend: itemValue });
+                }}
+                >
+                {spendList.map(( spend ) => {
+                    return(
+                    <Picker.Item key={`spend-${spend}`} label={spend} value={spend}/>
+                    );
+                })}
+                </Picker>
+                
+                <TextInput
+                style={{ height: 70, borderColor: 'gray', borderWidth: 2}}
+                onChangeText={(spendNow) => { this.setState ({ spendNow })}}
+                value={spendNow}
+                >
+                </TextInput>
+                <TouchableOpacity onPress={() => {}}>
+                    <Text>Spend!</Text>
+                </TouchableOpacity>
+            </View>
+            
         );
     }
 }
