@@ -24,10 +24,11 @@ class SpendItem extends React.Component {
     }
 
     render(){
-        const navigation = this.props.navigation
+        const navigation = this.props.navigation;
+        let sub = String(Number(this.returnValue()) - Number(this.returnSpendAlready()))
         return(
             <View>
-                <Text>{this.returnName() + ' - ' + 'R$ ' + this.returnValue() + ' - ' + this.returnSpendAlready()}</Text>
+                <Text>{this.returnName() + ' - ' + 'R$ ' + this.returnValue() + ' - ' + this.returnSpendAlready() + ' = ' + sub}</Text>
             </View>
         );
     }
