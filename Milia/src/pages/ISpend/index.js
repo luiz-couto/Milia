@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, Image } from 'react-native';
+import { View, Text, TouchableOpacity, ImageBackground, Image, Picker } from 'react-native';
 import { openDatabase } from 'react-native-sqlite-storage';
 
 import { ScrollView } from 'react-native-gesture-handler';
@@ -7,9 +7,68 @@ import { ScrollView } from 'react-native-gesture-handler';
 let db = openDatabase('inc_list','1.0','Income List', -1)
 
 class ISpend extends React.Component {
+    
+    constructor(props){
+        super(props);
+        this.state = {
+            selectedSpend: '',
+            spendList: []
+        }
+    }
+
+    componentDidMount() {
+        this.setSpendNames();
+    }
+
+    setSpendNames() {
+
+        let spendNames = [];
+        let result = new Promise((resolve,reject) => {
+            
+            db.transaction(function(tx){
+            tx.executeSql('SELECT * FROM spend_table',[],(tx,resultado) => {
+                resolve(resultado)
+                
+                
+            })
+        },null)})
+
+        result.then((resultado) => {
+            
+            rows = resultado.rows
+            len = resultado.rows.length
+
+            for(i=0;i<len;i++){
+
+                name = rows.item(i).spend_name;
+                spendNames.push(name);
+                
+            }
+            this.setState({ spendList: spendNames })
+        });
+    }
+    
     render() {
+        const {
+            selectedSpend,
+            spendList
+        } = this.state
+
         return (
-            <Text> Helloo Milia </Text>
+            <Picker
+            mode='dropdown'
+            selectedValue={selectedSpend}
+            style={{height: 30, width: 300}}
+            onValueChange={(itemValue, itemIndex) => {
+                this.setState({ selectedSpend: itemValue });
+            }}
+            >
+            {spendList.map(( spend ) => {
+                return(
+                <Picker.Item key={`spend-${spend}`} label={spend} value={spend}/>
+                );
+            })}
+            </Picker>
         );
     }
 }
