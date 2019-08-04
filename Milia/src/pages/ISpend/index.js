@@ -109,6 +109,7 @@ class ISpend extends React.Component {
                 style={{ height: 70, borderColor: 'gray', borderWidth: 2}}
                 onChangeText={(spendNow) => { this.setState ({ spendNow })}}
                 value={spendNow}
+                keyboardType={'numeric'}
                 >
                 </TextInput>
                 <TouchableOpacity onPress={() => {this.updateData()}}>

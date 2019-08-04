@@ -69,6 +69,7 @@ class IncomeModal extends React.Component{
                 style={{ height: 70, borderColor: 'gray', borderWidth: 2}}
                 onChangeText={(incomeValue) => { this.setState ({ incomeValue })}}
                 value={incomeValue}
+                keyboardType={'numeric'}
                 ></TextInput>
 
                 <TouchableOpacity onPress={() => {this.saveData()}}>
