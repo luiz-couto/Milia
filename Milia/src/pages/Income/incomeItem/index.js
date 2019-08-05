@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity,Image,Alert} from 'react-native';
+import { Icon } from 'react-native-elements'
 
 import styles from './styles';
 
@@ -20,8 +21,17 @@ class IncomeItem extends React.Component {
     render(){
         const navigation = this.props.navigation
         return(
-            <View>
-                <Text>{this.returnName() + ' - ' + 'R$ ' + this.returnValue()}</Text>
+            <View style={styles.item_container}>
+                <Icon
+                    name='coin'
+                    type='material-community'
+                    color='#FFD700'
+                    size={26}
+                    //iconStyle={styles.add_icon}
+                />
+                {/* <Text>{this.returnName() + ' - ' + 'R$ ' + this.returnValue()}</Text> */}
+                <Text style={styles.income_name}> {this.returnName()} </Text>
+                <Text style={styles.income_value}>{ 'R$ ' + this.returnValue()}</Text>
             </View>
         );
     }

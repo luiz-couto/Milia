@@ -9,11 +9,15 @@ const styles = StyleSheet.create({
     },
 
     add_icon: {
-        marginTop: hp('48%'),
-        marginLeft: wp('70%'),
+        marginTop: hp('75%'),
+        marginLeft: wp('72%'),
         width: wp('20%'),
-    }
+        position: 'absolute',
+    },
 
+    page_container: {
+        backgroundColor: 'rgb(255,255,255)'
+    }
 });
 
 export default styles;

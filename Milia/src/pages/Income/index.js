@@ -122,7 +122,7 @@ class Income extends React.Component {
         })
         return (
             <>
-                <View>
+                <View style={styles.page_container}>
                     <ScrollView>
                         {incomes}
                     </ScrollView>
