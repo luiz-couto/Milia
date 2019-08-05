@@ -17,6 +17,22 @@ const styles = StyleSheet.create({
         marginTop: hp('3%'),
         flexDirection: 'row',
 
+    },
+
+    income_name: {
+        fontFamily: 'Jersey M54',
+        fontSize: hp('2.7%'),
+        color: 'rgba(0,0,0,0.66)',
+        marginTop: 5.5,
+        marginLeft: 4,
+    },
+
+    income_value: {
+        fontFamily: 'Jersey M54',
+        fontSize: hp('2.7%'),
+        color: '#1B9E2D',
+        marginTop: 5.5,
+        marginLeft: wp('36%')
     }
 });
 
