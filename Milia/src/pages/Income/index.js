@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, ImageBackground, Image } from 'react-native';
 import { openDatabase } from 'react-native-sqlite-storage';
+import { Icon } from 'react-native-elements'
 
 import styles from './styles';
 
@@ -122,14 +123,20 @@ class Income extends React.Component {
         return (
             <>
                 <View>
-                    <TouchableOpacity onPress={this.openModal}>
-                        <Text>Adicionar</Text>
-                    </TouchableOpacity>
                     <ScrollView>
                         {incomes}
                     </ScrollView>
                     <Text>{'--------------------------------------------------'}</Text>
                     <Text>{'Total - ' + 'R$ ' + String(incomeTotal) }</Text>
+                    <TouchableOpacity onPress={this.openModal} style={styles.add_icon}>
+                    <Icon
+                      name='pluscircleo'
+                      type='antdesign'
+                      color='red'
+                      size={55}
+                      //iconStyle={styles.add_icon}
+                    />
+                    </TouchableOpacity>
                 </View>
                 {showModal && (
                     <IncomeModal

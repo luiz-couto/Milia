@@ -6,6 +6,12 @@ const styles = StyleSheet.create({
  
     modal_container: {
         borderWidth: 3,
+    },
+
+    add_icon: {
+        marginTop: hp('48%'),
+        marginLeft: wp('70%'),
+        width: wp('20%'),
     }
 
 });
