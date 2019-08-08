@@ -126,8 +126,17 @@ class Income extends React.Component {
                     <ScrollView>
                         {incomes}
                     </ScrollView>
-                    <Text>{'--------------------------------------------------'}</Text>
-                    <Text>{'Total - ' + 'R$ ' + String(incomeTotal) }</Text>
+                    <View style={styles.total_container}>
+                    <Icon
+                      name='ios-cash'
+                      type='ionicon'
+                      color='green'
+                      size={30}
+                      //iconStyle={styles.add_icon}
+                    />
+                    <Text style={styles.total_text}>Total</Text>
+                    <Text style={styles.total_value}>{'R$ ' + String(incomeTotal)}</Text>
+                    </View>
                     <TouchableOpacity onPress={this.openModal} style={styles.add_icon}>
                     <Icon
                       name='pluscircleo'
