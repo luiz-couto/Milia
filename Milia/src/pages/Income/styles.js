@@ -9,12 +9,9 @@ const styles = StyleSheet.create({
     },
 
     add_icon: {
-        //marginTop: hp('50%'),
-        //marginLeft: wp('72%'),
+        //marginTop: hp('4.3%'),
+        marginLeft: wp('28%'),
         width: wp('20%'),
-        left: wp('72%'),
-        top: hp('40%')
-        //position: 'absolute',
     },
 
     page_container: {
@@ -31,7 +28,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         width: wp('85%'),
         marginLeft: wp('7%'),
-        marginTop: hp('75%'),
+        marginTop: hp('58%'),
         flexDirection: 'row',
         position: 'absolute',
     },
@@ -48,8 +45,36 @@ const styles = StyleSheet.create({
         fontFamily: 'Jersey M54',
         fontSize: hp('2.7%'),
         color: '#1B9E2D',
-        marginTop: 5.5,
+        marginTop: 6.5,
         marginLeft: wp('30%')
+    },
+
+    header: {
+        flexDirection:'row',
+        width: wp('100%'),
+        height: hp('17%'),
+        backgroundColor: 'rgb(252,95,95)',
+        
+    },
+
+    header_title: {
+        fontFamily: 'GreatVibes-Regular',
+        fontSize: hp('8%'),
+        color: 'white',
+        marginTop: 20,
+        marginLeft: 35,
+    },
+
+    add_container: {
+        padding: 12,
+        borderStyle: 'dashed',
+        borderWidth: 2,
+        borderColor: 'red',
+        borderRadius: 8,
+        width: wp('85%'),
+        marginLeft: wp('7%'),
+        marginTop: hp('5%%'),
+        flexDirection: 'row',
     }
 
     

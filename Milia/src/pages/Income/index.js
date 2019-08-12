@@ -121,10 +121,26 @@ class Income extends React.Component {
                     navigation = {navigation} />
         })
         return (
-            <>
+            <>  
+                <View style={styles.header}>
+                <Text style={styles.header_title}>Incomes</Text>
+                </View>
                 <View style={styles.page_container}>
                     <ScrollView>
                         {incomes}
+                        <TouchableOpacity onPress={this.openModal}>
+                        <View style={styles.add_container}>
+                            <View  style={styles.add_icon}>
+                                <Icon
+                                name='plus'
+                                type='antdesign'
+                                color='red'
+                                size={35}
+                                //iconStyle={styles.add_icon}
+                                />
+                            </View>
+                        </View>
+                        </TouchableOpacity>
                     </ScrollView>
                     <View style={styles.total_container}>
                     <Icon
@@ -137,22 +153,14 @@ class Income extends React.Component {
                     <Text style={styles.total_text}>Total</Text>
                     <Text style={styles.total_value}>{'R$ ' + String(incomeTotal)}</Text>
                     </View>
-                    <TouchableOpacity onPress={this.openModal} style={styles.add_icon}>
-                    <Icon
-                      name='pluscircleo'
-                      type='antdesign'
-                      color='red'
-                      size={55}
-                      //iconStyle={styles.add_icon}
-                    />
-                    </TouchableOpacity>
-                </View>
+                
                 {showModal && (
                     <IncomeModal
                     navigation={navigation}
                     closeModal={this.closeModal}
                     />
                 )}
+                </View>
             </>
         );
     }
