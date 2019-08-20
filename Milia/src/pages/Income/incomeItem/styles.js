@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         borderRightWidth:2,
         borderTopWidth:1,
         borderBottomWidth: 4,
-        borderColor: 'red',
+        borderColor: 'rgb(252,95,95)',
         borderRadius: 8,
         width: wp('85%'),
         marginLeft: wp('7%'),
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     income_name: {
         fontFamily: 'Jersey M54',
         fontSize: hp('2.7%'),
-        color: 'rgba(0,0,0,0.66)',
+        color: 'rgba(255,255,255,0.8)',
         marginTop: 5.5,
         marginLeft: 4,
     },

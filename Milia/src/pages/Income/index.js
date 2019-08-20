@@ -126,6 +126,13 @@ class Income extends React.Component {
                 <Text style={styles.header_title}>Incomes</Text>
                 </View>
                 <View style={styles.page_container}>
+                    <ImageBackground
+                        
+                        source={require('./background-coin.png')}
+                        style={styles.background}
+                        resizeMode = 'cover'
+                        
+                    />
                     <ScrollView>
                         {incomes}
                         <TouchableOpacity onPress={this.openModal}>
@@ -153,6 +160,7 @@ class Income extends React.Component {
                     <Text style={styles.total_text}>Total</Text>
                     <Text style={styles.total_value}>{'R$ ' + String(incomeTotal)}</Text>
                     </View>
+                </View>
                 
                 {showModal && (
                     <IncomeModal
@@ -160,7 +168,7 @@ class Income extends React.Component {
                     closeModal={this.closeModal}
                     />
                 )}
-                </View>
+               
             </>
         );
     }
