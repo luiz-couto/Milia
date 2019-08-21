@@ -15,6 +15,12 @@ const TabNavig = createBottomTabNavigator(
         SpendPlan: { screen: SpendPlan },
         ISPend: { screen: ISpend }
 
+    },{
+        tabBarOptions: {
+            activeTintColor: 'white',
+            inactiveTintColor: 'white',
+            style: {backgroundColor: 'rgb(252,95,95)'}
+        },
     }
 )
 
