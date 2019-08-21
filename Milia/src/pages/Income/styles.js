@@ -85,6 +85,15 @@ const styles = StyleSheet.create({
 
     },
 
+    IN: {
+
+        width: wp('40%'),
+        height: hp('11%'),
+        marginLeft: wp('30%'),
+        marginTop: hp('1.5%')
+
+    },
+
     
 });
 

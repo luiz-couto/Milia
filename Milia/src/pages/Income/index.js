@@ -123,7 +123,10 @@ class Income extends React.Component {
         return (
             <>  
                 <View style={styles.header}>
-                <Text style={styles.header_title}>Incomes</Text>
+                <Image
+                    source={require('./IN_icon2.png')}
+                    style={styles.IN}
+                />
                 </View>
                 <View style={styles.page_container}>
                     <ImageBackground
