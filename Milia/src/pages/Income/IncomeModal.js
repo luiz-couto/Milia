@@ -49,33 +49,49 @@ class IncomeModal extends React.Component{
         } = this.state
 
         return(
-                <Modal style={styles.modal_container} 
+                <Modal style={styles.modal_container}
+                transparent={true} 
                 animationType="slide"
                 visible={isVisible}
                 onRequestClose={ () => {this.closeModal()}}
                 > 
-                <TouchableOpacity onPress={() => {this.closeModal()}}>
-                    <Text>Cancelar</Text>
-                </TouchableOpacity>
-
-                <TextInput
-                style={{ height: 70, borderColor: 'gray', borderWidth: 2}}
-                onChangeText={(incomeName) => { this.setState ({ incomeName })}}
-                value={incomeName}
-                >
-                </TextInput>
-                
-                <TextInput
-                style={{ height: 70, borderColor: 'gray', borderWidth: 2}}
-                onChangeText={(incomeValue) => { this.setState ({ incomeValue })}}
-                value={incomeValue}
-                keyboardType={'numeric'}
-                ></TextInput>
-
-                <TouchableOpacity onPress={() => {this.saveData()}}>
-                    <Text>Adicionar</Text>
-                </TouchableOpacity>
-                    
+                <View style={{
+                        flex: 1,
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center'}}>
+                    <View style={{
+                            backgroundColor: 'rgba(0,0,0,0.95)',
+                            width: 330,
+                            height: 220,
+                            padding: 20,
+                            borderWidth: 1,
+                            borderColor: 'white',
+                            borderRadius: 12,
+                            }}>
+                        <TextInput
+                        style={{ color:'white', height: 70, borderColor: 'gray', borderWidth: 2}}
+                        onChangeText={(incomeName) => { this.setState ({ incomeName })}}
+                        value={incomeName}
+                        >
+                        </TextInput>
+                        
+                        <TextInput
+                        style={{ color:'white', height: 70, borderColor: 'gray', borderWidth: 2}}
+                        onChangeText={(incomeValue) => { this.setState ({ incomeValue })}}
+                        value={incomeValue}
+                        keyboardType={'numeric'}
+                        ></TextInput>
+                        <View style={{flexDirection:'row'}}>
+                            <TouchableOpacity onPress={() => {this.closeModal()}}>
+                                <Text style={{color: 'white'}}>Cancelar</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => {this.saveData()}}>
+                                <Text style={{color: 'white', marginLeft: 30,}}>Adicionar</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
                 </Modal>
         );
     }

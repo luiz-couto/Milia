@@ -6,6 +6,8 @@ const styles = StyleSheet.create({
  
     modal_container: {
         borderWidth: 3,
+        height: hp('30%'),
+        alignSelf: 'center',
     },
 
     add_icon: {
