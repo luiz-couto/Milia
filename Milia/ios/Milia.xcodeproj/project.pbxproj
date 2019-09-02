@@ -36,6 +36,7 @@
 		997ABEFDC25A4C9680DCAB61 /* Jersey M54.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53C1738CFEEB4CDE8F961AB5 /* Jersey M54.ttf */; };
 		468FBC042F7F4C619CF1D0F9 /* GreatVibes-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5279A02EB2A34A059317318F /* GreatVibes-Regular.ttf */; };
 		DE3DB934B5464380A9D8EAE9 /* KaushanScript-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = ADE057BDFE3642299C92DA95 /* KaushanScript-Regular.otf */; };
+		D0342EF005D84A46A374EC92 /* Manjari-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C483F25FDC420CB9763654 /* Manjari-Thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		53C1738CFEEB4CDE8F961AB5 /* Jersey M54.ttf */ = {isa = PBXFileReference; name = "Jersey M54.ttf"; path = "../assets/fonts/Jersey M54.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		5279A02EB2A34A059317318F /* GreatVibes-Regular.ttf */ = {isa = PBXFileReference; name = "GreatVibes-Regular.ttf"; path = "../assets/fonts/GreatVibes-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		ADE057BDFE3642299C92DA95 /* KaushanScript-Regular.otf */ = {isa = PBXFileReference; name = "KaushanScript-Regular.otf"; path = "../assets/fonts/KaushanScript-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		57C483F25FDC420CB9763654 /* Manjari-Thin.ttf */ = {isa = PBXFileReference; name = "Manjari-Thin.ttf"; path = "../assets/fonts/Manjari-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 				53C1738CFEEB4CDE8F961AB5 /* Jersey M54.ttf */,
 				5279A02EB2A34A059317318F /* GreatVibes-Regular.ttf */,
 				ADE057BDFE3642299C92DA95 /* KaushanScript-Regular.otf */,
+				57C483F25FDC420CB9763654 /* Manjari-Thin.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				997ABEFDC25A4C9680DCAB61 /* Jersey M54.ttf in Resources */,
 				468FBC042F7F4C619CF1D0F9 /* GreatVibes-Regular.ttf in Resources */,
 				DE3DB934B5464380A9D8EAE9 /* KaushanScript-Regular.otf in Resources */,
+				D0342EF005D84A46A374EC92 /* Manjari-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

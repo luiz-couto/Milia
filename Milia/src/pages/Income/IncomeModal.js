@@ -61,7 +61,7 @@ class IncomeModal extends React.Component{
                         justifyContent: 'center',
                         alignItems: 'center'}}>
                     <View style={{
-                            backgroundColor: 'rgba(0,0,0,0.95)',
+                            backgroundColor: 'rgba(0,0,0,0.8)',
                             width: 330,
                             height: 220,
                             padding: 20,
@@ -70,24 +70,32 @@ class IncomeModal extends React.Component{
                             borderRadius: 12,
                             }}>
                         <TextInput
-                        style={{ color:'white', height: 70, borderColor: 'gray', borderWidth: 2}}
+                        style={{ color:'white', height: 50, borderColor: 'rgba(252,95,95,0.8)', borderBottomWidth: 2, textAlignVertical:'bottom'}}
                         onChangeText={(incomeName) => { this.setState ({ incomeName })}}
                         value={incomeName}
+                        placeholder={'Put here the name of the new income'}
+                        placeholderTextColor={'rgba(255,255,255,0.7)'}
                         >
                         </TextInput>
                         
                         <TextInput
-                        style={{ color:'white', height: 70, borderColor: 'gray', borderWidth: 2}}
+                        style={{ color:'white', height: 50, borderColor: 'rgba(252,95,95,0.8)', borderBottomWidth: 2, textAlignVertical:'bottom'}}
                         onChangeText={(incomeValue) => { this.setState ({ incomeValue })}}
                         value={incomeValue}
                         keyboardType={'numeric'}
+                        placeholder={'...and his value here'}
+                        placeholderTextColor={'rgba(255,255,255,0.7)'}
                         ></TextInput>
                         <View style={{flexDirection:'row'}}>
                             <TouchableOpacity onPress={() => {this.closeModal()}}>
-                                <Text style={{color: 'white'}}>Cancelar</Text>
+                                <View style={{borderWidth: 2, borderColor: 'gray', borderRadius: 5, padding: 7, marginLeft: 63.5, marginTop: 30, width: 100, alignItems: 'center'}}>
+                                <Text style={{color: 'gray', fontFamily: 'Manjari-Thin', marginTop: 3}}>Cancelar</Text>
+                                </View>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => {this.saveData()}}>
-                                <Text style={{color: 'white', marginLeft: 30,}}>Adicionar</Text>
+                                <View style={{  marginLeft: 20, marginTop: 30, borderWidth: 2, borderRadius: 5, borderColor: 'rgba(252,95,95,0.8)', padding: 7, width: 100, alignItems: 'center' }}>
+                                <Text style={{color: 'rgba(252,95,95,0.8)', fontFamily: 'Manjari-Thin', marginTop: 3}}>Adicionar</Text>
+                                </View>
                             </TouchableOpacity>
                         </View>
                     </View>
