@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, ImageBackground, Image } from 'react-native';
 import { openDatabase } from 'react-native-sqlite-storage';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp}
+from 'react-native-responsive-screen';
 
 import { ScrollView } from 'react-native-gesture-handler';
 import SpendModal from './SpendModal';
@@ -133,14 +135,18 @@ class SpendPlan extends React.Component {
         return (
             <>
                 <View>
-                <ImageBackground
-                        
-                        source={require('./background-coin.png')}
-                        style={styles.background}
-                        resizeMode = 'cover'
-                        
-                />
-                    <ScrollView>
+                    <ImageBackground
+                            
+                            source={require('./background-coin.png')}
+                            style={styles.background}
+                            resizeMode = 'cover'
+                            
+                    />
+                    <View style={styles.header}>
+                    
+                    </View>
+                    <View style={{height: hp('70%')}}>
+                    <ScrollView style={{}}>
                         {spends}
                         <TouchableOpacity onPress={this.openModal}>
                         <View style={styles.add_container}>
@@ -156,6 +162,7 @@ class SpendPlan extends React.Component {
                         </View>
                         </TouchableOpacity>
                     </ScrollView>
+                    </View>
                 </View>
                 {showModal && (
                     <SpendModal

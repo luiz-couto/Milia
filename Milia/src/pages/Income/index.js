@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, ImageBackground, Image } from 'react-native';
 import { openDatabase } from 'react-native-sqlite-storage';
-import { Icon } from 'react-native-elements'
+import { Icon } from 'react-native-elements';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp}
+from 'react-native-responsive-screen';
 
 import styles from './styles';
 
@@ -136,6 +138,7 @@ class Income extends React.Component {
                         resizeMode = 'cover'
                         
                     />
+                    <View style={{ height: hp('70%') }}>
                     <ScrollView>
                         {incomes}
                         <TouchableOpacity onPress={this.openModal}>
@@ -152,6 +155,7 @@ class Income extends React.Component {
                         </View>
                         </TouchableOpacity>
                     </ScrollView>
+                    </View>
                     <View style={styles.total_container}>
                     <Icon
                       name='ios-cash'

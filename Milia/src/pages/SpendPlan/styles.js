@@ -30,6 +30,14 @@ const styles = StyleSheet.create({
         marginLeft: wp('28%'),
         width: wp('20%'),
     },
+
+    header: {
+        flexDirection:'row',
+        width: wp('100%'),
+        height: hp('14%'),
+        backgroundColor: 'rgb(8, 140, 196)',
+        
+    },
     
 });
 
