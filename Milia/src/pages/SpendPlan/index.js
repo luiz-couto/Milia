@@ -6,6 +6,10 @@ import { ScrollView } from 'react-native-gesture-handler';
 import SpendModal from './SpendModal';
 import SpendItem from './SpendItem/index';
 
+import { Icon } from 'react-native-elements'
+
+import styles from './styles';
+
 let db = openDatabase('inc_list','1.0','Income List', -1)
 
 class SpendPlan extends React.Component {
@@ -129,11 +133,28 @@ class SpendPlan extends React.Component {
         return (
             <>
                 <View>
-                    <TouchableOpacity onPress={this.openModal}>
-                        <Text>Adicionar</Text>
-                    </TouchableOpacity>
+                <ImageBackground
+                        
+                        source={require('./background-coin.png')}
+                        style={styles.background}
+                        resizeMode = 'cover'
+                        
+                />
                     <ScrollView>
                         {spends}
+                        <TouchableOpacity onPress={this.openModal}>
+                        <View style={styles.add_container}>
+                            <View  style={styles.add_icon}>
+                                <Icon
+                                name='plus'
+                                type='antdesign'
+                                color='rgb(8, 140, 196)'
+                                size={35}
+                                //iconStyle={styles.add_icon}
+                                />
+                            </View>
+                        </View>
+                        </TouchableOpacity>
                     </ScrollView>
                 </View>
                 {showModal && (
