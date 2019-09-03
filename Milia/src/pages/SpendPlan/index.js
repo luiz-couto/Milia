@@ -143,7 +143,7 @@ class SpendPlan extends React.Component {
                             
                     />
                     <View style={styles.header}>
-                    
+                    <Text style={{fontFamily: 'Manjari-Bold', fontSize: 45, color:'white', marginTop: 10, marginLeft: 116  }}>O U T</Text>
                     </View>
                     <View style={{height: hp('70%')}}>
                     <ScrollView style={{}}>

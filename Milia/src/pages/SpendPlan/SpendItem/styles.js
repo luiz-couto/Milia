@@ -36,14 +36,14 @@ const styles = StyleSheet.create({
     },
 
     income_value: {
-        fontFamily: 'Manjari-Thin',
+        fontFamily: 'Manjari-Bold',
         fontSize: hp('2.7%'),
         color: 'white',
         marginTop: 5.5,
     },
 
     income_spend: {
-        fontFamily: 'Manjari-Thin',
+        fontFamily: 'Manjari-Bold',
         fontSize: hp('2.7%'),
         color: 'rgb(252,95,95)',
         marginTop: 5.5,
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     },
 
     income_sub: {
-        fontFamily: 'Manjari-Thin',
+        fontFamily: 'Manjari-Bold',
         fontSize: hp('2.7%'),
         color: '#1B9E2D',
         marginTop: 5.5,

@@ -125,10 +125,7 @@ class Income extends React.Component {
         return (
             <>  
                 <View style={styles.header}>
-                <Image
-                    source={require('./IN_icon2.png')}
-                    style={styles.IN}
-                />
+                    <Text style={{fontFamily: 'Manjari-Bold', fontSize: 45, color:'white', marginTop: 10, marginLeft: 153  }}>I N</Text>
                 </View>
                 <View style={styles.page_container}>
                     <ImageBackground
