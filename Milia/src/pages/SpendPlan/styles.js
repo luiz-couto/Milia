@@ -38,6 +38,12 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgb(8, 140, 196)',
         
     },
+
+    modal_container: {
+        borderWidth: 3,
+        height: hp('30%'),
+        alignSelf: 'center',
+    },
     
 });
 

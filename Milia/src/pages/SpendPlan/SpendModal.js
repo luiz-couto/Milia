@@ -145,33 +145,61 @@ class SpendModal extends React.Component{
         } = this.state
 
         return(
-                <Modal style={styles.modal_container} 
+                <Modal style={styles.modal_container}
+                transparent={true} 
                 animationType="slide"
                 visible={isVisible}
                 onRequestClose={ () => {this.closeModal()}}
                 > 
-                <TouchableOpacity onPress={() => {this.closeModal()}}>
-                    <Text>Cancelar</Text>
-                </TouchableOpacity>
-
-                <TextInput
-                style={{ height: 70, borderColor: 'gray', borderWidth: 2}}
-                onChangeText={(spendName) => { this.setState ({ spendName })}}
-                value={spendName}
-                >
-                </TextInput>
-                
-                <TextInput
-                style={{ height: 70, borderColor: 'gray', borderWidth: 2}}
-                onChangeText={(spendValue) => { this.setState ({ spendValue })}}
-                value={spendValue}
-                keyboardType={'numeric'}
-                ></TextInput>
-
-                <TouchableOpacity onPress={() => {this.saveData()}}>
-                    <Text>Adicionar</Text>
-                </TouchableOpacity>
+                <View style={{
+                        flex: 1,
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center'}}>
+                <View style={{
+                            backgroundColor: 'rgba(0,0,0,0.8)',
+                            width: 330,
+                            height: 220,
+                            padding: 20,
+                            borderWidth: 1,
+                            borderColor: 'white',
+                            borderRadius: 12,
+                            }}>
                     
+
+                    <TextInput
+                    style={{ color:'white', height: 50, borderColor: 'rgb(8, 140, 196)', borderBottomWidth: 2, textAlignVertical:'bottom' }}
+                    onChangeText={(spendName) => { this.setState ({ spendName })}}
+                    value={spendName}
+                    placeholder={'Name'}
+                    placeholderTextColor={'rgba(255,255,255,0.7)'}
+                    >
+                    </TextInput>
+                    
+                    <TextInput
+                    style={{ color:'white', height: 50, borderColor: 'rgb(8, 140, 196)', borderBottomWidth: 2, textAlignVertical:'bottom' }}
+                    onChangeText={(spendValue) => { this.setState ({ spendValue })}}
+                    value={spendValue}
+                    keyboardType={'numeric'}
+                    placeholder={'Plan Value'}
+                    placeholderTextColor={'rgba(255,255,255,0.7)'}
+
+                    ></TextInput>
+                    <View style={{flexDirection:'row'}}>
+                        <TouchableOpacity onPress={() => {this.closeModal()}}>
+                            <View style={{borderWidth: 2, borderColor: 'gray', borderRadius: 5, padding: 7, marginLeft: 63.5, marginTop: 30, width: 100, alignItems: 'center'}}>
+                                <Text style={{color: 'gray', fontFamily: 'Manjari-Thin', marginTop: 3}}>Cancelar</Text>
+                            </View>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity onPress={() => {this.saveData()}}>
+                            <View style={{  marginLeft: 20, marginTop: 30, borderWidth: 2, borderRadius: 5, borderColor: 'rgb(8, 140, 196)', padding: 7, width: 100, alignItems: 'center' }}>
+                                <Text style={{color: 'rgb(8, 140, 196)', fontFamily: 'Manjari-Thin', marginTop: 3}}>Adicionar</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+                </View>
                 </Modal>
         );
     }
