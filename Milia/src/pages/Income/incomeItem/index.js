@@ -18,21 +18,39 @@ class IncomeItem extends React.Component {
         return spl[1];
     }
 
+    deleteComment(){
+        Alert.alert(
+            'Opções',
+            '',
+            [
+              {
+                text: 'Editar',
+                onPress: () => console.log('Edit Pressed'),
+                style: 'cancel',
+              },
+              {text: 'Apagar', onPress: this.props.deleteMethod},
+            ],
+            {cancelable: true}
+          );
+    }
+
     render(){
         const navigation = this.props.navigation
         return(
-            <View style={styles.item_container}>
-                <Icon
-                    name='coin'
-                    type='material-community'
-                    color='#FFD700'
-                    size={26}
-                    //iconStyle={styles.add_icon}
-                />
-                {/* <Text>{this.returnName() + ' - ' + 'R$ ' + this.returnValue()}</Text> */}
-                <Text style={styles.income_name}> {this.returnName()} </Text>
-                <Text style={styles.income_value}>{ 'R$ ' + this.returnValue()}</Text>
-            </View>
+            <TouchableOpacity onLongPress={() => this.deleteComment()}>
+                <View style={styles.item_container}>
+                    <Icon
+                        name='coin'
+                        type='material-community'
+                        color='#FFD700'
+                        size={26}
+                        //iconStyle={styles.add_icon}
+                    />
+                    {/* <Text>{this.returnName() + ' - ' + 'R$ ' + this.returnValue()}</Text> */}
+                    <Text style={styles.income_name}> {this.returnName()} </Text>
+                    <Text style={styles.income_value}>{ 'R$ ' + this.returnValue()}</Text>
+                </View>
+            </TouchableOpacity>
         );
     }
 

@@ -108,6 +108,44 @@ class Income extends React.Component {
         }
         );
     }
+
+    deleteData(itemID){
+
+        id = this.getID(itemID)
+
+        db.transaction(function(tx){
+            tx.executeSql('DELETE FROM income_table WHERE income_id =' + id, [], (tx, resultado) =>{
+                
+                console.log('Item deleted')
+
+            })
+        })
+
+        this.showData()
+
+    }
+
+    getID(i){
+
+        let result = new Promise((resolve,reject) => {
+            
+            db.transaction(function(tx){
+            tx.executeSql('SELECT * FROM income_table',[],(tx,resultado) => {
+                resolve(resultado)
+                
+                
+            })
+        },null)})
+
+        result.then((resultado) => {
+
+           id = resultado.rows.item(i).income_id
+           return id
+
+        })
+
+
+    }
     
     
     render(){
@@ -120,6 +158,7 @@ class Income extends React.Component {
         } = this.state
         let incomes = incomeArray.map((val, key) =>{
             return <IncomeItem key={key} val={val}
+                    deleteMethod={ ()=> this.deleteData(key) }
                     navigation = {navigation} />
         })
         return (
