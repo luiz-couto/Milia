@@ -4,6 +4,8 @@ import { openDatabase } from 'react-native-sqlite-storage';
 
 import { ScrollView } from 'react-native-gesture-handler';
 
+import styles from './styles';
+
 let db = openDatabase('inc_list','1.0','Income List', -1)
 
 class ISpend extends React.Component {
@@ -90,6 +92,16 @@ class ISpend extends React.Component {
 
         return (
             <View>
+                <ImageBackground
+                            
+                    source={require('./background-coin.png')}
+                    style={styles.background}
+                    resizeMode = 'cover'
+                            
+                />
+                <View style={styles.header}>
+                    <Text style={{fontFamily: 'Manjari-Bold', fontSize: 45, color:'white', marginTop: 10, marginLeft: 75  }}>S P E N D</Text>
+                </View>
                 <Picker
                 mode='dropdown'
                 selectedValue={selectedSpend}
