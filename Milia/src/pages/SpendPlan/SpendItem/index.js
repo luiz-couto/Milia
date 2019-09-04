@@ -24,11 +24,29 @@ class SpendItem extends React.Component {
         return spl[2];
     }
 
+    deleteComment(){
+        Alert.alert(
+            'Opções',
+            '',
+            [
+              {
+                text: 'Editar',
+                onPress: () => console.log('Edit Pressed'),
+                style: 'cancel',
+              },
+              {text: 'Apagar', onPress: this.props.deleteMethod},
+            ],
+            {cancelable: true}
+          );
+    }
+
     render(){
         const navigation = this.props.navigation;
         let sub = String(Number(this.returnValue()) - Number(this.returnSpendAlready()))
         return(
+            <TouchableOpacity onLongPress={() => this.deleteComment()}>
             <View style={styles.item_container}>
+                
                 <View style={styles.item_header}>
                     <Icon
                         name='coin'
@@ -45,6 +63,7 @@ class SpendItem extends React.Component {
                     <Text style={styles.income_sub}>{ ' = ' + sub }</Text>
                 </View>
             </View>
+            </TouchableOpacity>
         );
     }
 
