@@ -111,6 +111,44 @@ class SpendPlan extends React.Component {
         }
         );
     }
+
+    deleteData(itemID){
+
+        id = this.getID(itemID)
+
+        db.transaction(function(tx){
+            tx.executeSql('DELETE FROM spend_table WHERE spend_id =' + id, [], (tx, resultado) =>{
+                
+                console.log('Item deleted')
+
+            })
+        })
+
+        this.showData()
+
+    }
+
+    getID(i){
+
+        let result = new Promise((resolve,reject) => {
+            
+            db.transaction(function(tx){
+            tx.executeSql('SELECT * FROM spend_table',[],(tx,resultado) => {
+                resolve(resultado)
+                
+                
+            })
+        },null)})
+
+        result.then((resultado) => {
+
+           id = resultado.rows.item(i).spend_id
+           return id
+
+        })
+
+
+    }
     
     
     render(){
@@ -130,6 +168,7 @@ class SpendPlan extends React.Component {
         } = this.state
         let spends = spendArray.map((val, key) =>{
             return <SpendItem key={key} val={val}
+                    deleteMethod={ ()=> this.deleteData(key) }
                     navigation = {navigation} />
         })
         return (
