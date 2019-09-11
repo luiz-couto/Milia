@@ -14,14 +14,16 @@ class SpendItem extends React.Component {
 
     returnValue(){
         value = this.props.val.name;
-        spl = value.split(';.;',3)
-        return spl[1];
+        spl = value.split(';.;',3);
+        num = (Number(spl[1])).toFixed(2);
+        return num;
     }
 
     returnSpendAlready() {
         value = this.props.val.name;
-        spl = value.split(';.;',3)
-        return spl[2];
+        spl = value.split(';.;',3);
+        num = (Number(spl[2])).toFixed(2);
+        return num;
     }
 
     deleteComment(){
@@ -42,7 +44,7 @@ class SpendItem extends React.Component {
 
     render(){
         const navigation = this.props.navigation;
-        let sub = String(Number(this.returnValue()) - Number(this.returnSpendAlready()))
+        let sub = Number(Number(this.returnValue()) - Number(this.returnSpendAlready())).toFixed(2);
         return(
             <TouchableOpacity onLongPress={() => this.deleteComment()}>
             <View style={styles.item_container}>

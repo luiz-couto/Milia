@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         fontSize: hp('2.7%'),
         color: '#1B9E2D',
         marginTop: 5.5,
-        marginLeft: wp('30%')
+        marginLeft: wp('25%')
     }
 });
 

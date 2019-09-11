@@ -14,8 +14,9 @@ class IncomeItem extends React.Component {
 
     returnValue(){
         value = this.props.val.name;
-        spl = value.split(';.;',2)
-        return spl[1];
+        spl = value.split(';.;',2);
+        num = (Number(spl[1])).toFixed(2);
+        return num;
     }
 
     deleteComment(){
