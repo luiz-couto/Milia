@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, ImageBackground, Image } from 'react-native';
+import SpendWidget from '../../SpendWidget/index';
 
 import styles from './styles';
 
@@ -8,13 +9,14 @@ class Main extends React.Component {
         const navigation = this.props.navigation;
         return(
             <View>
-                <ImageBackground
+                <SpendWidget />
+                {/* <ImageBackground
                     
                     source={require('./main_background.png')}
                     style={styles.background}
                     resizeMode = 'cover'
                     
-                />
+                /> */}
                 <Image
                     source={require('./milia_logo.png')}
                     style={styles.logo}
