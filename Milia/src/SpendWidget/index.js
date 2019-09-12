@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Dimensions, PanResponder, Animated } from 'react-native';
+import { Text, View, Dimensions, PanResponder, Animated, TouchableOpacity } from 'react-native';
 
 import styles from './styles';
 import { Divider } from 'react-native-elements';
@@ -34,10 +34,15 @@ class SpendWidget extends React.Component {
             transform: this.state.pan.getTranslateTransform()
         }
         return(
+            
             <Animated.View
-                {...this.panResponder.panHandlers}
+            {...this.panResponder.panHandlers}
                 style={[panStyle, styles.circle]} 
-            />
+            >
+                <View></View>
+            </Animated.View>
+
+            
         );
     }
 }
