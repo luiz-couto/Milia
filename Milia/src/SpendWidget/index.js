@@ -1,8 +1,10 @@
 import React from 'react';
-import { Text, View, Dimensions, PanResponder, Animated, TouchableOpacity } from 'react-native';
+import { Text, View, Dimensions, PanResponder, Animated, TouchableOpacity, TouchableHighlight } from 'react-native';
 
 import styles from './styles';
 import { Divider } from 'react-native-elements';
+
+const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
 
 class SpendWidget extends React.Component {
     constructor() {
@@ -24,6 +26,9 @@ class SpendWidget extends React.Component {
                 this.state.pan.setOffset(this.state.pan.__getValue());
                 this.state.pan.setValue({ x: 0, y: 0 });
             },
+            onMoveShouldSetPanResponder: (evt, gestureState) => {
+                return gestureState.dx != 0 && gestureState.dy != 0;
+            }
             
         });
         
@@ -39,9 +44,13 @@ class SpendWidget extends React.Component {
             {...this.panResponder.panHandlers}
                 style={[panStyle, styles.circle]} 
             >
-                <View></View>
-            </Animated.View>
+                <View style={{backgroundColor: 'white', marginTop: 0, borderRadius: 70, height: 70}}>
+                <TouchableOpacity style={{alignItems: "center" }} onPress={() => {alert('CLICKED') }}>
+                    <Text style={{ fontSize: 65, marginBottom: 10 }}>!</Text>
+                </TouchableOpacity>
+                </View>
 
+            </Animated.View>
             
         );
     }

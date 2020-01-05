@@ -7,6 +7,7 @@ from 'react-native-responsive-screen';
 import { ScrollView } from 'react-native-gesture-handler';
 import SpendModal from './SpendModal';
 import SpendItem from './SpendItem/index';
+import SpendWidget from '../../SpendWidget/index';
 
 import { Icon } from 'react-native-elements'
 
@@ -202,6 +203,7 @@ class SpendPlan extends React.Component {
                         </TouchableOpacity>
                     </ScrollView>
                     </View>
+                    <SpendWidget />
                 </View>
                 {showModal && (
                     <SpendModal

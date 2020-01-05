@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, ImageBackground, Image, Picker, TextInput
 import { openDatabase } from 'react-native-sqlite-storage';
 
 import { ScrollView } from 'react-native-gesture-handler';
+import SpendWidget from '../../SpendWidget/index';
 
 import styles from './styles';
 
@@ -127,6 +128,7 @@ class ISpend extends React.Component {
                 <TouchableOpacity onPress={() => {this.updateData()}}>
                     <Text>Spend!</Text>
                 </TouchableOpacity>
+                <SpendWidget />
             </View>
             
         );

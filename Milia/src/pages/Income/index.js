@@ -10,6 +10,7 @@ import styles from './styles';
 import IncomeItem from './incomeItem/index';
 import IncomeModal from './IncomeModal';
 import { ScrollView } from 'react-native-gesture-handler';
+import SpendWidget from '../../SpendWidget/index';
 
 
 let db = openDatabase('inc_list','1.0','Income List', -1)
@@ -203,6 +204,7 @@ class Income extends React.Component {
                     <Text style={styles.total_text}>Total</Text>
                     <Text style={styles.total_value}>{'R$ ' + String(incomeTotal)}</Text>
                     </View>
+                    <SpendWidget />
                 </View>
                 
                 {showModal && (
