@@ -25,7 +25,6 @@ class SpendModal extends React.Component{
     }
 
     closeModal() {
-        console.log('passou aqui');
         this.setState({ isVisible: false }, () => {
             setTimeout(this.props.closeModal, 500);
         });

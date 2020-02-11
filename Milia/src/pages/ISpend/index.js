@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, Image, Picker, TextInput } from 'react-native';
+import { View, Text,Modal, TouchableOpacity, ImageBackground, Image, Picker, TextInput } from 'react-native';
 import { openDatabase } from 'react-native-sqlite-storage';
+import { Portal, Dialog } from 'react-native-paper';
 
 import { ScrollView } from 'react-native-gesture-handler';
 import SpendWidget from '../../SpendWidget/index';
@@ -17,6 +18,7 @@ class ISpend extends React.Component {
             selectedSpend: '',
             spendList: [],
             spendNow: null,
+            isVisible: true
         }
     }
 
@@ -82,55 +84,56 @@ class ISpend extends React.Component {
 
     }
 
+    closeModal() {
+        this.setState({ isVisible: false }, () => {
+            setTimeout(this.props.closeModal, 500);
+        });
+    }
 
     
     render() {
         const {
             selectedSpend,
             spendList,
-            spendNow
+            spendNow,
+            isVisible
         } = this.state
 
         return (
-            <View>
-                <ImageBackground
-                            
-                    source={require('./background-coin.png')}
-                    style={styles.background}
-                    resizeMode = 'cover'
-                            
-                />
-                <View style={styles.header}>
-                    <Text style={{fontFamily: 'Manjari-Bold', fontSize: 45, color:'white', marginTop: 10, marginLeft: 75  }}>S P E N D</Text>
-                </View>
-                <Picker
-                mode='dropdown'
-                selectedValue={selectedSpend}
-                style={{height: 30, width: 300}}
-                onValueChange={(itemValue, itemIndex) => {
-                    this.setState({ selectedSpend: itemValue });
-                }}
-                >
-                {spendList.map(( spend ) => {
-                    return(
-                    <Picker.Item key={`spend-${spend}`} label={spend} value={spend}/>
-                    );
-                })}
-                </Picker>
-                
-                <TextInput
-                style={{ height: 70, borderColor: 'gray', borderWidth: 2}}
-                onChangeText={(spendNow) => { this.setState ({ spendNow })}}
-                value={spendNow}
-                keyboardType={'numeric'}
-                >
-                </TextInput>
-                <TouchableOpacity onPress={() => {this.updateData()}}>
-                    <Text>Spend!</Text>
-                </TouchableOpacity>
-                <SpendWidget />
-            </View>
-            
+            <>
+                <Dialog.Content>
+                    {/* <View style={styles.header}>
+                        <Text style={{fontFamily: 'Manjari-Bold', fontSize: 45, color:'white', marginTop: 10, marginLeft: 75  }}>S P E N D</Text>
+                    </View> */}
+                    <Picker
+                    mode='dropdown'
+                    selectedValue={selectedSpend}
+                    style={{ backgroundColor: 'white' }}
+                    onValueChange={(itemValue, itemIndex) => {
+                        this.setState({ selectedSpend: itemValue });
+                    }}
+                    >
+                    {spendList.map(( spend ) => {
+                        return(
+                        <Picker.Item key={`spend-${spend}`} label={spend} value={spend}/>
+                        );
+                    })}
+                    </Picker>
+                    
+                    <TextInput
+                    style={{ height: 70, borderColor: 'gray', borderWidth: 2}}
+                    onChangeText={(spendNow) => { this.setState ({ spendNow })}}
+                    value={spendNow}
+                    keyboardType={'numeric'}
+                    >
+                    </TextInput>
+                </Dialog.Content>
+                <Dialog.Actions>
+                    <TouchableOpacity onPress={() => {this.updateData()}}>
+                        <Text>Spend!</Text>
+                    </TouchableOpacity>
+                </Dialog.Actions>
+            </>
         );
     }
 }

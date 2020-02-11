@@ -8,13 +8,11 @@ DrawerItems, createBottomTabNavigator} from 'react-navigation';
 import Main from './pages/Main/index';
 import Income from './pages/Income/index';
 import SpendPlan from './pages/SpendPlan/index';
-import ISpend from './pages/ISpend/index';
 
 const TabNavig = createBottomTabNavigator(
     {
         Income: { screen: Income },
         SpendPlan: { screen: SpendPlan },
-        ISPend: { screen: ISpend }
 
     },{
 
@@ -25,14 +23,11 @@ const TabNavig = createBottomTabNavigator(
               let iconName;
               let type;
               if (routeName === 'Income') {
-                iconName = 'spa';
-                type = 'material';
+                iconName = "level-down"
+                type = 'font-awesome';
               } else if (routeName === 'SpendPlan') {
-                iconName = 'receipt';
-                type = 'material';
-              } else if (routeName === 'ISPend'){
-                iconName = 'toll';
-                type = 'material';
+                iconName = 'level-up';
+                type = 'font-awesome';
               }
               // You can return any component that you like here!
               return <Icon name={iconName} type={type} size={30} color={tintColor} />;

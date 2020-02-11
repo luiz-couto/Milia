@@ -51,7 +51,7 @@ class IncomeModal extends React.Component{
         return(
                 <Modal style={styles.modal_container}
                 transparent={true} 
-                animationType="slide"
+                animationType="fade"
                 visible={isVisible}
                 onRequestClose={ () => {this.closeModal()}}
                 > 

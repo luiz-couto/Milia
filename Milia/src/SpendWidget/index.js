@@ -1,8 +1,11 @@
 import React from 'react';
-import { Text, View, Dimensions, PanResponder, Animated, TouchableOpacity, TouchableHighlight } from 'react-native';
+import { Text, View, Dimensions, PanResponder, Animated, TouchableOpacity, TouchableHighlight, Modal } from 'react-native';
 
 import styles from './styles';
 import { Divider } from 'react-native-elements';
+import { Portal, Dialog, Paragraph, Button } from 'react-native-paper';
+
+import ISpend from '../pages/ISpend/index';
 
 const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
 
@@ -12,6 +15,7 @@ class SpendWidget extends React.Component {
 
         this.state = {
             pan: new Animated.ValueXY(),
+            showModal: false
         };
 
         this._val = { x:0, y:0 }
@@ -39,19 +43,33 @@ class SpendWidget extends React.Component {
             transform: this.state.pan.getTranslateTransform()
         }
         return(
-            
+            <>
             <Animated.View
             {...this.panResponder.panHandlers}
                 style={[panStyle, styles.circle]} 
             >
                 <View style={{backgroundColor: 'white', marginTop: 0, borderRadius: 70, height: 70}}>
-                <TouchableOpacity style={{alignItems: "center" }} onPress={() => {alert('CLICKED') }}>
-                    <Text style={{ fontSize: 65, marginBottom: 10 }}>!</Text>
+                <TouchableOpacity style={{alignItems: "center", flex: 1 }} onPress={() => {
+                    this.setState({ showModal: true })
+                    } }>
+                    <Text style={{ fontSize: 50, marginBottom: 10, color: 'rgb(245, 233, 7)' }}>S</Text>
                 </TouchableOpacity>
                 </View>
 
             </Animated.View>
-            
+            { this.state.showModal && 
+            <Portal>
+             <Dialog
+                style={{ backgroundColor: '#f7d57a' }}
+                visible={true}
+                onDismiss={() => {
+                    this.setState({ showModal: false })
+                }}>
+               <Dialog.Title style={{ color: 'white' }}> Note Expense </Dialog.Title>
+               <ISpend />
+             </Dialog>
+            </Portal>}
+            </>
         );
     }
 }

@@ -1,10 +1,13 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, Image } from 'react-native';
+import { View, Text, TouchableOpacity, ImageBackground, Image, Modal } from 'react-native';
 import SpendWidget from '../../SpendWidget/index';
+
+import ISpend from '../ISpend/index';
 
 import styles from './styles';
 
 class Main extends React.Component {
+
     render(){
         const navigation = this.props.navigation;
         return(
@@ -24,6 +27,7 @@ class Main extends React.Component {
                     <Text style={styles.button_text}>Começar</Text>
                 </TouchableOpacity>
                 <SpendWidget />
+
             </View>
         );
         
