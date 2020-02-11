@@ -38,6 +38,10 @@ class SpendWidget extends React.Component {
         
     }
 
+    closeModal = () => {
+        this.setState({ showModal: false })
+    }
+
     render() {
         let panStyle = {
             transform: this.state.pan.getTranslateTransform()
@@ -60,13 +64,13 @@ class SpendWidget extends React.Component {
             { this.state.showModal && 
             <Portal>
              <Dialog
-                style={{ backgroundColor: '#f7d57a' }}
+                style={{ backgroundColor: 'white' }}
                 visible={true}
                 onDismiss={() => {
                     this.setState({ showModal: false })
                 }}>
-               <Dialog.Title style={{ color: 'white' }}> Note Expense </Dialog.Title>
-               <ISpend />
+               <Dialog.Title style={{ color: 'rgb(247, 212, 15)' }}> Note Expense </Dialog.Title>
+               <ISpend  closeModal={this.closeModal}/>
              </Dialog>
             </Portal>}
             </>

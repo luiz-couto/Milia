@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text,Modal, TouchableOpacity, ImageBackground, Image, Picker, TextInput } from 'react-native';
+import { View, Text,Modal, TouchableOpacity, ImageBackground, Image, Picker } from 'react-native';
 import { openDatabase } from 'react-native-sqlite-storage';
-import { Portal, Dialog } from 'react-native-paper';
+import { Portal, Dialog, TextInput } from 'react-native-paper';
 
 import { ScrollView } from 'react-native-gesture-handler';
 import SpendWidget from '../../SpendWidget/index';
@@ -77,7 +77,7 @@ class ISpend extends React.Component {
                 tx.executeSql('UPDATE spend_table SET spend_already =(?) WHERE spend_name =(?)',[String(sum), selectedSpend])
             })
 
-            this.props.navigation.navigate('SpendPlan',{ atualizar: 1 })
+            this.props.closeModal();
     
         });
 
@@ -105,28 +105,37 @@ class ISpend extends React.Component {
                     {/* <View style={styles.header}>
                         <Text style={{fontFamily: 'Manjari-Bold', fontSize: 45, color:'white', marginTop: 10, marginLeft: 75  }}>S P E N D</Text>
                     </View> */}
+                    <View style={{ border: '2px solid black', }}>
                     <Picker
                     mode='dropdown'
                     selectedValue={selectedSpend}
-                    style={{ backgroundColor: 'white' }}
+                    style={{ border: '2px solid yellow' }}
                     onValueChange={(itemValue, itemIndex) => {
                         this.setState({ selectedSpend: itemValue });
                     }}
                     >
-                    {spendList.map(( spend ) => {
-                        return(
-                        <Picker.Item key={`spend-${spend}`} label={spend} value={spend}/>
-                        );
-                    })}
+                        {spendList.length > 0 && spendList.map(( spend ) => {
+                            return(
+                            <Picker.Item key={`spend-${spend}`} label={spend} value={spend}/>
+                            );
+                        })}
                     </Picker>
+                    </View>
                     
-                    <TextInput
+                    {/* <TextInput
                     style={{ height: 70, borderColor: 'gray', borderWidth: 2}}
                     onChangeText={(spendNow) => { this.setState ({ spendNow })}}
                     value={spendNow}
                     keyboardType={'numeric'}
                     >
-                    </TextInput>
+                    </TextInput> */}
+                    <TextInput
+                        label='Value'
+                        value={spendNow}
+                        onChangeText={text => this.setState({ spendNow: text })}
+                        keyboardType={'numeric'}
+                        style={{  }}
+                    />
                 </Dialog.Content>
                 <Dialog.Actions>
                     <TouchableOpacity onPress={() => {this.updateData()}}>
