@@ -13,11 +13,8 @@ const styles = StyleSheet.create({
     },
 
     header: {
-        flexDirection:'row',
-        width: wp('100%'),
-        height: hp('14%'),
+        width: wp('81%'),
         backgroundColor: 'rgb(247, 212, 15)',
-        
     },
 });
 

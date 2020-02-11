@@ -105,41 +105,37 @@ class ISpend extends React.Component {
                     {/* <View style={styles.header}>
                         <Text style={{fontFamily: 'Manjari-Bold', fontSize: 45, color:'white', marginTop: 10, marginLeft: 75  }}>S P E N D</Text>
                     </View> */}
-                    <View style={{ border: '2px solid black', }}>
-                    <Picker
-                    mode='dropdown'
-                    selectedValue={selectedSpend}
-                    style={{ border: '2px solid yellow' }}
-                    onValueChange={(itemValue, itemIndex) => {
-                        this.setState({ selectedSpend: itemValue });
-                    }}
-                    >
-                        {spendList.length > 0 && spendList.map(( spend ) => {
-                            return(
-                            <Picker.Item key={`spend-${spend}`} label={spend} value={spend}/>
-                            );
-                        })}
-                    </Picker>
+                    <View style={{ borderWidth: 1, borderColor: 'rgb(247, 212, 15)', borderRadius: 7 }}>
+                        <Picker
+                        mode='dropdown'
+                        selectedValue={selectedSpend}
+                        style={{ border: '2px solid yellow' }}
+                        onValueChange={(itemValue, itemIndex) => {
+                            this.setState({ selectedSpend: itemValue });
+                        }}
+                        >
+                            {spendList.length > 0 && spendList.map(( spend ) => {
+                                return(
+                                <Picker.Item key={`spend-${spend}`} label={spend} value={spend}/>
+                                );
+                            })}
+                        </Picker>
                     </View>
-                    
-                    {/* <TextInput
-                    style={{ height: 70, borderColor: 'gray', borderWidth: 2}}
-                    onChangeText={(spendNow) => { this.setState ({ spendNow })}}
-                    value={spendNow}
-                    keyboardType={'numeric'}
-                    >
-                    </TextInput> */}
                     <TextInput
                         label='Value'
                         value={spendNow}
                         onChangeText={text => this.setState({ spendNow: text })}
                         keyboardType={'numeric'}
-                        style={{  }}
+                        mode={'outlined'}
+                        underlineColor='rgb(247, 212, 15)'
+                        style={{ height: 55 }}
                     />
                 </Dialog.Content>
                 <Dialog.Actions>
                     <TouchableOpacity onPress={() => {this.updateData()}}>
-                        <Text>Spend!</Text>
+                        <View style={styles.header}>    
+                            <Text style={{fontFamily: 'Manjari-Bold', fontSize: 25, color:'white', marginTop: 10, textAlign: 'center' }}>S P E N D</Text>
+                        </View>
                     </TouchableOpacity>
                 </Dialog.Actions>
             </>

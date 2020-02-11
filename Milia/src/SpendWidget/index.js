@@ -69,7 +69,7 @@ class SpendWidget extends React.Component {
                 onDismiss={() => {
                     this.setState({ showModal: false })
                 }}>
-               <Dialog.Title style={{ color: 'rgb(247, 212, 15)' }}> Note Expense </Dialog.Title>
+               <Dialog.Title style={{ color: 'rgb(247, 212, 15)', fontFamily: 'Manjari-Bold' }}> Note Expense </Dialog.Title>
                <ISpend  closeModal={this.closeModal}/>
              </Dialog>
             </Portal>}
