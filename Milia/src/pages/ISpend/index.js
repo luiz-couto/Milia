@@ -105,11 +105,11 @@ class ISpend extends React.Component {
                     {/* <View style={styles.header}>
                         <Text style={{fontFamily: 'Manjari-Bold', fontSize: 45, color:'white', marginTop: 10, marginLeft: 75  }}>S P E N D</Text>
                     </View> */}
-                    <View style={{ borderWidth: 1, borderColor: 'rgb(247, 212, 15)', borderRadius: 7 }}>
+                    <View style={{ borderWidth: 1.4, borderColor: 'rgb(160, 160, 160)', borderRadius: 5, height: 57, paddingLeft: 5,paddingTop: 2, paddingBottom: 0 }}>
                         <Picker
                         mode='dropdown'
                         selectedValue={selectedSpend}
-                        style={{ border: '2px solid yellow' }}
+                        style={{  }}
                         onValueChange={(itemValue, itemIndex) => {
                             this.setState({ selectedSpend: itemValue });
                         }}
@@ -128,7 +128,7 @@ class ISpend extends React.Component {
                         keyboardType={'numeric'}
                         mode={'outlined'}
                         underlineColor='rgb(247, 212, 15)'
-                        style={{ height: 55 }}
+                        style={{ height: 55, marginTop: 15 }}
                     />
                 </Dialog.Content>
                 <Dialog.Actions>
