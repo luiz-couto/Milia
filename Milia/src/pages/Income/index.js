@@ -7,6 +7,7 @@ from 'react-native-responsive-screen';
 
 import styles from './styles';
 
+import Header from '../../Components/Header';
 import IncomeItem from './incomeItem/index';
 import IncomeModal from './IncomeModal';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -164,17 +165,8 @@ class Income extends React.Component {
         })
         return (
             <>  
-                <View style={styles.header}>
-                    <Text style={{fontFamily: 'Manjari-Bold', fontSize: 45, color:'white', marginTop: 10, marginLeft: 153  }}>I N</Text>
-                </View>
+                <Header color={'#fd8888'} title={'Month Revenue'}/>
                 <View style={styles.page_container}>
-                    <ImageBackground
-                        
-                        source={require('./background-coin.png')}
-                        style={styles.background}
-                        resizeMode = 'cover'
-                        
-                    />
                     <View style={{ height: hp('70%') }}>
                     <ScrollView>
                         {incomes}
@@ -193,7 +185,7 @@ class Income extends React.Component {
                         </TouchableOpacity>
                     </ScrollView>
                     </View>
-                    <View style={styles.total_container}>
+                    {/* <View style={styles.total_container}>
                     <Icon
                       name='ios-cash'
                       type='ionicon'
@@ -203,7 +195,7 @@ class Income extends React.Component {
                     />
                     <Text style={styles.total_text}>Total</Text>
                     <Text style={styles.total_value}>{'R$ ' + String(incomeTotal)}</Text>
-                    </View>
+                    </View> */}
                     <SpendWidget />
                 </View>
                 

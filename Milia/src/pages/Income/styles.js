@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
 
     page_container: {
         height: hp('100%'),
+        backgroundColor: '#f1f2f0'
     },
 
     total_container: {
