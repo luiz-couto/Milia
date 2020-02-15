@@ -31,6 +31,14 @@ const styles = StyleSheet.create({
         borderTopColor: '#fd8888'
     },
 
+    income_container: {
+        paddingLeft: 0,
+        padding: 9,
+        flexDirection: 'row',
+        flex: 1,
+        justifyContent: 'space-between'
+    },
+
     income_name: {
         fontFamily: 'Manjari-Bold',
         fontSize: hp('2.7%'),
@@ -44,7 +52,9 @@ const styles = StyleSheet.create({
         fontSize: hp('2.7%'),
         color: '#9da6a9',
         marginTop: 5.5,
-        marginLeft: wp('25%')
+        //marginLeft: wp('25%'),
+        justifyContent: 'flex-end'
+
     }
 });
 

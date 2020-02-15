@@ -43,7 +43,7 @@ class IncomeItem extends React.Component {
                 <View style={styles.triangle_mark}>
 
                 </View>
-                <View style={{paddingLeft: 0,padding: 9, flexDirection: 'row' }}>
+                <View style={styles.income_container}>
                     <Text style={styles.income_name}> {this.returnName()} </Text>
                     <Text style={styles.income_value}>{ 'R$ ' + this.returnValue()}</Text>
                 </View>

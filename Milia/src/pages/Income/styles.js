@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     },
 
     add_icon: {
-        //marginTop: hp('4.3%'),
+        marginBottom: hp('1.3%'),
         marginLeft: wp('28%'),
         width: wp('20%'),
     },
@@ -56,28 +56,29 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         width: wp('100%'),
         height: hp('14%'),
-        backgroundColor: 'rgb(252,95,95)',
+        backgroundColor: '#fd8888',
         
     },
 
     header_title: {
         fontFamily: 'GreatVibes-Regular',
         fontSize: hp('9%'),
-        color: 'rgb(252,95,95)',
+        color: '#fd8888',
         marginTop: 25,
         marginLeft: 35,
     },
 
     add_container: {
         padding: 12,
-        borderStyle: 'dashed',
+        //borderStyle: 'dashed',
         borderWidth: 2,
-        borderColor: 'rgb(252,95,95)',
-        borderRadius: 8,
+        borderColor: '#fd8888',
+        //borderRadius: 8,
         width: wp('85%'),
         marginLeft: wp('7%'),
-        marginTop: hp('5%%'),
+        marginTop: hp('3%'),
         flexDirection: 'row',
+        height: hp('8.4%'),
     },
 
     background:{
