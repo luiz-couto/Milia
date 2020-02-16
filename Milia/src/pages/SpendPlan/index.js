@@ -184,7 +184,7 @@ class SpendPlan extends React.Component {
                             
                     /> */}
                     <Header color={'#088cc4'} title={'Spend Plan'}/>
-                    <View style={{height: hp('70%')}}>
+                    <View style={{height: hp('78%')}}>
                     <ScrollView style={{}}>
                         {spends}
                         <TouchableOpacity onPress={this.openModal}>

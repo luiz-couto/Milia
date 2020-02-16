@@ -1,5 +1,8 @@
 import React from 'react';
-import { Modal, View, Text, TouchableOpacity, ImageBackground, Image, TextInput } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp}
+from 'react-native-responsive-screen';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { Portal, Dialog, TextInput } from 'react-native-paper';
 import { openDatabase } from 'react-native-sqlite-storage';
 import styles from './styles';
 
@@ -143,63 +146,41 @@ class SpendModal extends React.Component{
             spendValue,
         } = this.state
 
-        return(
-                <Modal style={styles.modal_container}
-                transparent={true} 
-                animationType="slide"
+        return (
+            <Portal>
+                <Dialog
+                style={{ backgroundColor: 'white' }}
                 visible={isVisible}
-                onRequestClose={ () => {this.closeModal()}}
-                > 
-                <View style={{
-                        flex: 1,
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center'}}>
-                <View style={{
-                            backgroundColor: 'rgba(0,0,0,0.8)',
-                            width: 330,
-                            height: 220,
-                            padding: 20,
-                            borderWidth: 1,
-                            borderColor: 'white',
-                            borderRadius: 12,
-                            }}>
-                    
-
-                    <TextInput
-                    style={{ color:'white', height: 50, borderColor: 'rgb(8, 140, 196)', borderBottomWidth: 2, textAlignVertical:'bottom' }}
-                    onChangeText={(spendName) => { this.setState ({ spendName })}}
+                onDismiss={() => {
+                    this.closeModal();
+                }}>
+                <Dialog.Title style={{ color: '#088cc4', fontFamily: 'Manjari-Bold' }}> Add Spend Plan </Dialog.Title>
+                <Dialog.Content>
+                <TextInput
+                    label='Name'
                     value={spendName}
-                    placeholder={'Name'}
-                    placeholderTextColor={'rgba(255,255,255,0.7)'}
-                    >
-                    </TextInput>
-                    
-                    <TextInput
-                    style={{ color:'white', height: 50, borderColor: 'rgb(8, 140, 196)', borderBottomWidth: 2, textAlignVertical:'bottom' }}
-                    onChangeText={(spendValue) => { this.setState ({ spendValue })}}
+                    onChangeText={spendName => this.setState({ spendName })}
+                    mode={'outlined'}
+                    style={{ height: 55, marginTop: 15 }}
+                />
+                <TextInput
+                    label='Value'
                     value={spendValue}
+                    onChangeText={spendValue => this.setState({ spendValue })}
                     keyboardType={'numeric'}
-                    placeholder={'Plan Value'}
-                    placeholderTextColor={'rgba(255,255,255,0.7)'}
-
-                    ></TextInput>
-                    <View style={{flexDirection:'row'}}>
-                        <TouchableOpacity onPress={() => {this.closeModal()}}>
-                            <View style={{borderWidth: 2, borderColor: 'gray', borderRadius: 5, padding: 7, marginLeft: 63.5, marginTop: 30, width: 100, alignItems: 'center'}}>
-                                <Text style={{color: 'gray', fontFamily: 'Manjari-Thin', marginTop: 3}}>Cancelar</Text>
-                            </View>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity onPress={() => {this.saveData()}}>
-                            <View style={{  marginLeft: 20, marginTop: 30, borderWidth: 2, borderRadius: 5, borderColor: 'rgb(8, 140, 196)', padding: 7, width: 100, alignItems: 'center' }}>
-                                <Text style={{color: 'rgb(8, 140, 196)', fontFamily: 'Manjari-Thin', marginTop: 3}}>Adicionar</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-                </View>
-                </Modal>
+                    mode={'outlined'}
+                    style={{ height: 55, marginTop: 15 }}
+                />
+                </Dialog.Content>
+                <Dialog.Actions>
+                    <TouchableOpacity onPress={() => {this.saveData()}}>
+                        <View style={{ width: wp('81%'), backgroundColor: '#088cc4' }}>    
+                            <Text style={{fontFamily: 'Manjari-Bold', fontSize: 25, color:'white', marginTop: 10, textAlign: 'center' }}>O K</Text>
+                        </View>
+                    </TouchableOpacity>
+                </Dialog.Actions>
+                </Dialog>
+            </Portal>
         );
     }
 }
