@@ -2,8 +2,7 @@ import React from 'react';
 import { Component, Text } from 'react-native';
 import { Root } from "native-base";
 import { Icon } from 'react-native-elements'
-import { createStackNavigator, createAppContainer,createDrawerNavigator,
-DrawerItems, createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer, createMaterialTopTabNavigator } from 'react-navigation';
 
 import Main from './pages/Main/index';
 import Income from './pages/Income/index';
