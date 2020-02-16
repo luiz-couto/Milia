@@ -40,6 +40,8 @@
 		4171DE5D8ED54CF892DB9BFE /* Manjari-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C4193FF134D431C9DED8666 /* Manjari-Bold.ttf */; };
 		FB036515C41A4C1E93B6A346 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7160861A18054D0884163FD9 /* Roboto-Regular.ttf */; };
 		DB66A2EBB5B94D6592ECC6D2 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5694A8660FC94720B02D359F /* Fontisto.ttf */; };
+		5A88303302D44291814BF195 /* proxima-nova.otf in Resources */ = {isa = PBXBuildFile; fileRef = E8FC371368F74776BDCCFD55 /* proxima-nova.otf */; };
+		C80969ECF1354A76A67E6B2F /* proxima-nova.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32639C3BEEBF41F68C65D56F /* proxima-nova.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		9C4193FF134D431C9DED8666 /* Manjari-Bold.ttf */ = {isa = PBXFileReference; name = "Manjari-Bold.ttf"; path = "../assets/fonts/Manjari-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		7160861A18054D0884163FD9 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		5694A8660FC94720B02D359F /* Fontisto.ttf */ = {isa = PBXFileReference; name = "Fontisto.ttf"; path = "../node_modules/native-base/Fonts/Fontisto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E8FC371368F74776BDCCFD55 /* proxima-nova.otf */ = {isa = PBXFileReference; name = "proxima-nova.otf"; path = "../assets/fonts/proxima-nova.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		32639C3BEEBF41F68C65D56F /* proxima-nova.ttf */ = {isa = PBXFileReference; name = "proxima-nova.ttf"; path = "../assets/fonts/proxima-nova.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +239,8 @@
 				9C4193FF134D431C9DED8666 /* Manjari-Bold.ttf */,
 				7160861A18054D0884163FD9 /* Roboto-Regular.ttf */,
 				5694A8660FC94720B02D359F /* Fontisto.ttf */,
+				E8FC371368F74776BDCCFD55 /* proxima-nova.otf */,
+				32639C3BEEBF41F68C65D56F /* proxima-nova.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -401,6 +407,8 @@
 				4171DE5D8ED54CF892DB9BFE /* Manjari-Bold.ttf in Resources */,
 				FB036515C41A4C1E93B6A346 /* Roboto-Regular.ttf in Resources */,
 				DB66A2EBB5B94D6592ECC6D2 /* Fontisto.ttf in Resources */,
+				5A88303302D44291814BF195 /* proxima-nova.otf in Resources */,
+				C80969ECF1354A76A67E6B2F /* proxima-nova.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
