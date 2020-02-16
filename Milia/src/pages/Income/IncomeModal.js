@@ -1,7 +1,11 @@
 import React from 'react';
-import { Modal, View, Text, TouchableOpacity, ImageBackground, Image, TextInput } from 'react-native';
+import { Modal, View, Text, TouchableOpacity, ImageBackground, Image } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp}
+from 'react-native-responsive-screen';
+import { Portal, Dialog, TextInput } from 'react-native-paper';
 import { openDatabase } from 'react-native-sqlite-storage';
 import styles from './styles';
+
 
 let db = openDatabase('inc_list','1.0','Income List', -1)
 
@@ -48,60 +52,43 @@ class IncomeModal extends React.Component{
             incomeValue,
         } = this.state
 
-        return(
-                <Modal style={styles.modal_container}
-                transparent={true} 
-                animationType="fade"
+        return (
+            <Portal>
+                <Dialog
+                style={{ backgroundColor: 'white' }}
                 visible={isVisible}
-                onRequestClose={ () => {this.closeModal()}}
-                > 
-                <View style={{
-                        flex: 1,
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center'}}>
-                    <View style={{
-                            backgroundColor: 'rgba(0,0,0,0.8)',
-                            width: 330,
-                            height: 220,
-                            padding: 20,
-                            borderWidth: 1,
-                            borderColor: 'white',
-                            borderRadius: 12,
-                            }}>
-                        <TextInput
-                        style={{ color:'white', height: 50, borderColor: 'rgba(252,95,95,0.8)', borderBottomWidth: 2, textAlignVertical:'bottom'}}
-                        onChangeText={(incomeName) => { this.setState ({ incomeName })}}
-                        value={incomeName}
-                        placeholder={'Put here the name of the new income'}
-                        placeholderTextColor={'rgba(255,255,255,0.7)'}
-                        >
-                        </TextInput>
-                        
-                        <TextInput
-                        style={{ color:'white', height: 50, borderColor: 'rgba(252,95,95,0.8)', borderBottomWidth: 2, textAlignVertical:'bottom'}}
-                        onChangeText={(incomeValue) => { this.setState ({ incomeValue })}}
-                        value={incomeValue}
-                        keyboardType={'numeric'}
-                        placeholder={'...and his value here'}
-                        placeholderTextColor={'rgba(255,255,255,0.7)'}
-                        ></TextInput>
-                        <View style={{flexDirection:'row'}}>
-                            <TouchableOpacity onPress={() => {this.closeModal()}}>
-                                <View style={{borderWidth: 2, borderColor: 'gray', borderRadius: 5, padding: 7, marginLeft: 63.5, marginTop: 30, width: 100, alignItems: 'center'}}>
-                                <Text style={{color: 'gray', fontFamily: 'Manjari-Thin', marginTop: 3}}>Cancelar</Text>
-                                </View>
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {this.saveData()}}>
-                                <View style={{  marginLeft: 20, marginTop: 30, borderWidth: 2, borderRadius: 5, borderColor: 'rgba(252,95,95,0.8)', padding: 7, width: 100, alignItems: 'center' }}>
-                                <Text style={{color: 'rgba(252,95,95,0.8)', fontFamily: 'Manjari-Thin', marginTop: 3}}>Adicionar</Text>
-                                </View>
-                            </TouchableOpacity>
+                onDismiss={() => {
+                    this.closeModal();
+                }}>
+                <Dialog.Title style={{ color: '#fd8888', fontFamily: 'Manjari-Bold' }}> Add Income </Dialog.Title>
+                <Dialog.Content>
+                <TextInput
+                    label='Name'
+                    value={incomeName}
+                    onChangeText={incomeName => this.setState({ incomeName })}
+                    mode={'outlined'}
+                    style={{ height: 55, marginTop: 15 }}
+                />
+                <TextInput
+                    label='Value'
+                    value={incomeValue}
+                    onChangeText={incomeValue => this.setState({ incomeValue })}
+                    keyboardType={'numeric'}
+                    mode={'outlined'}
+                    style={{ height: 55, marginTop: 15 }}
+                />
+                </Dialog.Content>
+                <Dialog.Actions>
+                    <TouchableOpacity onPress={() => {this.saveData()}}>
+                        <View style={{ width: wp('81%'), backgroundColor: '#fd8888' }}>    
+                            <Text style={{fontFamily: 'Manjari-Bold', fontSize: 25, color:'white', marginTop: 10, textAlign: 'center' }}>O K</Text>
                         </View>
-                    </View>
-                </View>
-                </Modal>
+                    </TouchableOpacity>
+                </Dialog.Actions>
+                </Dialog>
+            </Portal>
         );
+
     }
 }
 
