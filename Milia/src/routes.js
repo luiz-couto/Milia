@@ -7,12 +7,13 @@ import { createStackNavigator, createAppContainer, createMaterialTopTabNavigator
 import Main from './pages/Main/index';
 import Income from './pages/Income/index';
 import SpendPlan from './pages/SpendPlan/index';
+import Stats from './pages/Stats/index';
 
 const TabNavig = createMaterialTopTabNavigator(
     {
         Income: { screen: Income, params: {color: '#fd8888'} },
         SpendPlan: { screen: SpendPlan, params: {color: '#088cc4'} },
-        Statistics: { screen: SpendPlan, params: {color: 'grey'} },
+        Stats: { screen: Stats, params: {color: 'grey'} },
 
     },{
 
@@ -27,7 +28,7 @@ const TabNavig = createMaterialTopTabNavigator(
               } else if (routeName === 'SpendPlan') {
                 iconName = 'playlist-add';
                 type = 'material';
-              } else if (routeName === 'Statistics') {
+              } else if (routeName === 'Stats') {
                 iconName = 'trending-up';
                 type = 'material';
               }
