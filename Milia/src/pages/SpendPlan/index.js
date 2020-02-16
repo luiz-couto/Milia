@@ -176,13 +176,13 @@ class SpendPlan extends React.Component {
         return (
             <>
                 <View style={styles.page_container}>
-                    {/* <ImageBackground
+                    <ImageBackground
                             
-                            source={require('./background-coin.png')}
+                            source={require('./backMIliaWithGrey.png')}
                             style={styles.background}
                             resizeMode = 'cover'
                             
-                    /> */}
+                    />
                     <Header color={'#088cc4'} title={'Spend Plan'}/>
                     <View style={{height: hp('78%')}}>
                     <ScrollView style={{}}>
