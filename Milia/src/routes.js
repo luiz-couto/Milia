@@ -3,48 +3,57 @@ import { Component, Text } from 'react-native';
 import { Root } from "native-base";
 import { Icon } from 'react-native-elements'
 import { createStackNavigator, createAppContainer,createDrawerNavigator,
-DrawerItems, createBottomTabNavigator} from 'react-navigation';
+DrawerItems, createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation';
 
 import Main from './pages/Main/index';
 import Income from './pages/Income/index';
 import SpendPlan from './pages/SpendPlan/index';
 
-const TabNavig = createBottomTabNavigator(
+const TabNavig = createMaterialTopTabNavigator(
     {
-        Income: { screen: Income },
-        SpendPlan: { screen: SpendPlan },
+        Income: { screen: Income, params: {color: '#fd8888'} },
+        SpendPlan: { screen: SpendPlan, params: {color: '#088cc4'} },
+        Statistics: { screen: SpendPlan, params: {color: 'grey'} },
 
     },{
 
         defaultNavigationOptions: ({ navigation }) => ({
             tabBarIcon: ({ focused, horizontal, tintColor }) => {
               const { routeName } = navigation.state;
-              //let IconComponent = Ionicons;
               let iconName;
               let type;
               if (routeName === 'Income') {
-                iconName = "level-down"
-                type = 'font-awesome';
+                iconName = "account-balance-wallet"
+                type = 'material';
               } else if (routeName === 'SpendPlan') {
-                iconName = 'level-up';
-                type = 'font-awesome';
+                iconName = 'playlist-add';
+                type = 'material';
+              } else if (routeName === 'Statistics') {
+                iconName = 'trending-up';
+                type = 'material';
               }
               // You can return any component that you like here!
-              return <Icon name={iconName} type={type} size={30} color={tintColor} />;
+              return <Icon name={iconName} type={type} size={25} color={tintColor} />;
+            },
+
+            tabBarOptions: {
+                activeTintColor: '#c3c4c3',
+                inactiveTintColor: '#c3c4c3',
+                indicatorStyle: {
+                  marginBottom: 53,
+                  backgroundColor: navigation.state.params.color,
+                  width: 57,
+                  marginLeft: 32
+                },
+                showLabel: false,
+                style: {
+                    backgroundColor: 'white',
+                    height: 55,
+                },
+                showIcon: true
             },
         }),
-
-
-        tabBarOptions: {
-            activeTintColor: 'rgb(171,5,5)',
-            inactiveTintColor: 'white',
-            showLabel: false,
-            style: {
-                backgroundColor: 'rgb(252,95,95)',
-                height: 65,
-            }
-            
-        },
+        tabBarPosition: 'bottom',
     }
 )
 

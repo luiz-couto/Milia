@@ -21,7 +21,6 @@ class IncomeModal extends React.Component{
     }
 
     closeModal() {
-        //console.log('passou aqui');
         this.setState({ isVisible: false }, () => {
             setTimeout(this.props.closeModal, 500);
         });
@@ -32,9 +31,6 @@ class IncomeModal extends React.Component{
             incomeName,
             incomeValue
         } = this.state
-        
-        //console.log(incomeName);
-        //console.log(incomeValue);
 
         db.transaction(function(tx){
             tx.executeSql('INSERT INTO income_table (income_name,income_value) VALUES(?,?)',[incomeName,incomeValue])
@@ -44,8 +40,7 @@ class IncomeModal extends React.Component{
     }
 
     render(){
-        
-        const navigation = this.props
+
         let { 
             isVisible,
             incomeName,
