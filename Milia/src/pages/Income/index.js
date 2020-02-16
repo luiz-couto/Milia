@@ -166,6 +166,13 @@ class Income extends React.Component {
         return (
             <>  
                 <Header color={'#fd8888'} title={'Month Revenue'}/>
+                <ImageBackground
+                            
+                    source={require('./backMIliaWithGrey.png')}
+                    style={styles.background}
+                    resizeMode = 'cover'
+                            
+                />
                 <View style={styles.page_container}>
                     <View style={{ height: hp('70%') }}>
                     <ScrollView>

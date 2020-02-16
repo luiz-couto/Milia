@@ -11,7 +11,14 @@ const styles = StyleSheet.create({
         marginLeft: wp('7%'),
         marginTop: hp('3%'),
         flexDirection: 'row',
-
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.17,
+        shadowRadius: 3.84,
+        elevation: 4,
     },
 
     triangle_mark: {
