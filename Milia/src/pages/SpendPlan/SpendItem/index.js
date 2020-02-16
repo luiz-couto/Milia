@@ -48,21 +48,18 @@ class SpendItem extends React.Component {
         return(
             <TouchableOpacity onLongPress={() => this.deleteComment()}>
             <View style={styles.item_container}>
-                
-                <View style={styles.item_header}>
-                    <Icon
-                        name='coin'
-                        type='material-community'
-                        color='#FFD700'
-                        size={26}
-                        //iconStyle={styles.add_icon}
-                    />
-                    <Text style={styles.income_name}> {this.returnName()} </Text>
+                <View style={styles.triangle_mark}>
                 </View>
-                <View style={styles.item_content}>
-                    <Text style={styles.income_value}>{ 'R$ ' + this.returnValue()}</Text>
-                    <Text style={styles.income_spend}>{ ' - ' + this.returnSpendAlready() }</Text>
-                    <Text style={styles.income_sub}>{ ' = ' + sub }</Text>
+                
+                <View style={{  paddingLeft: 4, padding: 9, }}>
+                <View style={{}}>
+                    <Text style={styles.spend_name}> {this.returnName()} </Text>
+                </View>
+                <View style={styles.spend_info_container}>
+                    <Text style={styles.spend_info_text}>{this.returnValue()}</Text>
+                    <Text style={styles.spend_info_text}>{ ' - ' + this.returnSpendAlready() }</Text>
+                    <Text style={styles.spend_info_text}>{ ' = ' + sub }</Text>
+                </View>
                 </View>
             </View>
             </TouchableOpacity>

@@ -12,31 +12,28 @@ const styles = StyleSheet.create({
 
     },
 
+    page_container: {
+        height: hp('100%'),
+        backgroundColor: '#f1f2f0'
+    },
+
     add_container: {
         padding: 12,
-        borderStyle: 'dashed',
+        //borderStyle: 'dashed',
         borderWidth: 2,
-        borderColor: 'rgb(8, 140, 196)',
-        borderRadius: 8,
+        borderColor: '#088cc4',
+        //borderRadius: 8,
         width: wp('85%'),
         marginLeft: wp('7%'),
-        marginTop: hp('5%%'),
+        marginTop: hp('3%'),
         flexDirection: 'row',
-        marginBottom: 15
+        height: hp('8.4%'),
     },
 
     add_icon: {
-        //marginTop: hp('4.3%'),
+        marginBottom: hp('1.3%'),
         marginLeft: wp('28%'),
         width: wp('20%'),
-    },
-
-    header: {
-        flexDirection:'row',
-        width: wp('100%'),
-        height: hp('14%'),
-        backgroundColor: 'rgb(8, 140, 196)',
-        
     },
 
     modal_container: {

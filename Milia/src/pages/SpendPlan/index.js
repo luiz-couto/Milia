@@ -8,6 +8,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import SpendModal from './SpendModal';
 import SpendItem from './SpendItem/index';
 import SpendWidget from '../../SpendWidget/index';
+import Header from '../../Components/Header';
 
 import { Icon } from 'react-native-elements'
 
@@ -174,17 +175,15 @@ class SpendPlan extends React.Component {
         })
         return (
             <>
-                <View>
-                    <ImageBackground
+                <View style={styles.page_container}>
+                    {/* <ImageBackground
                             
                             source={require('./background-coin.png')}
                             style={styles.background}
                             resizeMode = 'cover'
                             
-                    />
-                    <View style={styles.header}>
-                    <Text style={{fontFamily: 'Manjari-Bold', fontSize: 45, color:'white', marginTop: 10, marginLeft: 116  }}>O U T</Text>
-                    </View>
+                    /> */}
+                    <Header color={'#088cc4'} title={'Spend Plan'}/>
                     <View style={{height: hp('70%')}}>
                     <ScrollView style={{}}>
                         {spends}
@@ -194,7 +193,7 @@ class SpendPlan extends React.Component {
                                 <Icon
                                 name='plus'
                                 type='antdesign'
-                                color='rgb(8, 140, 196)'
+                                color='#088cc4'
                                 size={35}
                                 //iconStyle={styles.add_icon}
                                 />
